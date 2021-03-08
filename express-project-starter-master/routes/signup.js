@@ -12,25 +12,24 @@ const db = require('../db/models')
 /* GET users listing. */
 
 //Login routes
-router.get('/login', function(req, res, next) {
-  
-});
 
-router.post('/login', function(req, res, next) {
-  
-});
 
-router.get('/signup', csrfProtection, function(req, res, next) {
+router.get('/', csrfProtection, asyncHandler(async(req, res, next) => {
   //Make a blank user
-  
+  const user = db.User.build()
   //render form
+  res.render('signup', {
+    title: 'Signup',
+    user,
+    csrfToken: req.csrfToken()
+  })
 
 
-});
+}));
 
 //validator array
 
-router.post('/signup', csrfProtection, asynchHandler(async (req, res, next) => {
+router.post('/', csrfProtection, asyncHandler(async (req, res, next) => {
   //destructure form data from req
 
   //build user

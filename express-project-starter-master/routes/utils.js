@@ -1,11 +1,11 @@
 const csrf = require('csurf');
-
+const {check} = require('express-validator')
 const csrfProtection = csrf({ cookie: true})
-
+const db = require('../db/models')
 const asyncHandler = handler => (req, res, next) => handler(req, res, next).catch(next)
 
 const userValidators = [
-    check('emailAddress')
+    check('email')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a value for the Email Address.')
         .isLength({ max: 100 })
@@ -15,7 +15,7 @@ const userValidators = [
         .custom((value) => {
             return db.User.findOne({
                 where: {
-                    emailAddress: value
+                    email: value
                 }
             }).then((user) => {
                 if (user) {

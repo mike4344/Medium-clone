@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-const { check, validationResult } = require('express-validator')
-const { csrfProtection, asyncHandler, userValidators } = require('./utils')
-const bcrypt = require('bcryptjs')
+const { check, validationResult } = require('express-validator');
+const { csrfProtection, asyncHandler, userValidators } = require('./utils');
+const bcrypt = require('bcryptjs');
 
-const db = require('../db/models')
+const db = require('../db/models');
+const {loginUser} = require('../auth');
 
 //logged in/logged out functionality
 
@@ -16,7 +17,7 @@ const db = require('../db/models')
 
 router.get('/', csrfProtection, asyncHandler(async(req, res, next) => {
   //Make a blank user
-  const user = db.User.build()
+  const user = db.User.build();
   //render form
   res.render('signup', {
     title: 'Signup',
@@ -32,10 +33,10 @@ router.get('/', csrfProtection, asyncHandler(async(req, res, next) => {
 
 router.post('/', csrfProtection, userValidators, asyncHandler(async (req, res, next) => {
   //destructure form data from req
-  const { emailAddress, screenName, password } = req.body;
+  const { email, screenName, password } = req.body;
   //build user
   const user = db.User.build({
-    emailAddress,
+    email,
     screenName
   });
   //check error

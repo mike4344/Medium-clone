@@ -13,7 +13,7 @@ const indexRouter = require('./routes/index');
 const signUpRouter = require('./routes/signup');
 const loginRouter = require('./routes/login');
 const storyRouter = require('./routes/stories')
-const userRouter = require('./routes/user');
+const userRouter = require('./routes/users');
 
 const app = express();
 

@@ -1,9 +1,9 @@
 extends layout
-block content 
+block content
     div(class='story-titlebox')
         h1(class='story-title')= story.title
             if story.subtitle
-                h3(class='story-subtitle')= story.subtitle 
+                h3(class='story-subtitle')= story.subtitle
             div(class='story-titlebox-author')
                 h5(class='story-titlebox-author-name')= story.User.screenName
                 if story.User.pictureURL
@@ -17,8 +17,7 @@ block content
 
     if currentUserId === story.userId
         div(class='story-owner-buttons')
-            button(class='button edit-button') Edit
-            button(class='button delete-button') Delete
-
-
-
+            a(href=`/stories/${story.id}/edit`)
+                button(class='button edit-button') Edit
+            a(href=`/stories/${story.id}/delete`)
+                button(class='button delete-button') Delete

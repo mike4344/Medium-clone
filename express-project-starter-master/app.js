@@ -12,7 +12,7 @@ const {restoreUser } = require('./auth')
 const indexRouter = require('./routes/index');
 const signUpRouter = require('./routes/signup');
 const loginRouter = require('./routes/login');
-const storyRouter = require('./routes/story')
+const storyRouter = require('./routes/stories')
 
 const app = express();
 
@@ -44,7 +44,7 @@ store.sync();
 app.use(indexRouter);
 app.use('/login', loginRouter);
 app.use('/signup', signUpRouter);
-app.use('/story', storyRouter);
+app.use('/stories', storyRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

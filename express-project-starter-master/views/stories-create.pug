@@ -4,7 +4,7 @@ include utils.pug
 
 block content
     +validationErrorSummary(errors)
-    form(action='/story/create' method='post')
+    form(action='/stories/create' method='post')
         input(type='hidden' name='_csrf' value=csrfToken)
         input(type='hidden' name='userId' value=userId)
         +field('Title', 'title', story.title)

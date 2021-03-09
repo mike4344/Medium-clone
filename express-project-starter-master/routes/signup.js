@@ -15,7 +15,7 @@ const {loginUser} = require('../auth');
 //Login routes
 
 
-router.get('/', csrfProtection, asyncHandler(async(req, res, next) => {
+router.get('/', csrfProtection,(req, res, next) => {
   //Make a blank user
   const user = db.User.build();
   //render form
@@ -26,7 +26,7 @@ router.get('/', csrfProtection, asyncHandler(async(req, res, next) => {
   })
 
 
-}));
+});
 
 //validator array
 

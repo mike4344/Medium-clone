@@ -11,6 +11,6 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', placeholder = 
   div
     label(for=fieldName)= labelText
     if fieldType === 'textarea'
-      textarea(id=fieldName name=fieldName rows='5')= fieldValue
+      textarea(id=fieldName name=fieldName rows='5' placeholder=placeholder)= fieldValue
     else
       input(type=fieldType id=fieldName name=fieldName value=fieldValue placeholder=placeholder)

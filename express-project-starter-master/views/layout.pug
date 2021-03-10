@@ -5,4 +5,12 @@ html
         title=`Animedium-${title}`
         link(rel='stylesheet' href='/stylesheets/reset.css')
   body
+    nav(style='background: darkblue')  
+      a(href="/")
+        img(src="https://i.pinimg.com/originals/02/07/2a/02072a87d479f3b0da5ae73160107b18.png" width='60px' height='60px')
+      a(href="/login") 
+        button(type="button") Login
+      a(href="/stories/create") 
+        button(type="button") Write New Story
+
     block content

@@ -1,7 +1,10 @@
 extends layout.pug
 block content
     div 
-        h1 DEV NAV LINKS
+        if loggedInUser 
+            h1 Welcome, #{loggedInUser.screenName}
+
+        h3 DEV NAV LINKS
         ul 
             li: a(href="/signup") Signup
             li: a(href="/login") Login

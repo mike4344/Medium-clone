@@ -1,0 +1,14 @@
+extends layout.pug
+block content
+    div 
+        h1 DEV NAV LINKS
+        ul 
+            li: a(href="/signup") Signup
+            li: a(href="/login") Login
+            li: a(href="/stories/create") Create New Story
+            h3 All Users
+                each user in users
+                    li: a(href=`/users/${user.id}`)=user.screenName
+            h3 All Stories
+                each story in stories 
+                    li: a(href=`/stories/${story.id}`)=story.title 

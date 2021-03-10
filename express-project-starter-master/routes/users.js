@@ -9,6 +9,8 @@ const { csrfProtection, asyncHandler, userValidators } = require("./utils");
 
 const { requireAuth } = require("../auth");
 
+const convertDate = (timestamp) => timestamp.toString().slice(0, 16);
+    
 
 router.get('/:userId(\\d+)', asyncHandler(async(req, res, next) => {
     //grabbing id from url
@@ -22,6 +24,9 @@ router.get('/:userId(\\d+)', asyncHandler(async(req, res, next) => {
             userId: { [Op.eq]: user.id }
         }
     });
+    
+
+
 
     let currentUserId = null;
 
@@ -33,6 +38,7 @@ router.get('/:userId(\\d+)', asyncHandler(async(req, res, next) => {
         title: `${user.screenName}\'s Profile`,
         user,
         userStories,
+        convertDate,
         currentUserId
     })
 

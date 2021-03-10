@@ -44,7 +44,7 @@ const profileValidators = [
         .withMessage('Please provide a value for the Screen Name.')
         .isLength({ max: 50 })
         .withMessage('Screen Name must be less than 50 characters.')
-        .custom((value) => {
+        .custom((value, { req }) => {
             return db.User.findOne({
                 where: {
                     screenName: value
@@ -52,8 +52,14 @@ const profileValidators = [
             }).then((user) => {
 
                 if (user) {
+
+                    if (user.id === req.session.auth.userId) {
+                        return;
+                    }
+
                     return Promise.reject('The provided Screen Name is already in use.')
                 }
+                
             })
         }),
     check('pictureURL')

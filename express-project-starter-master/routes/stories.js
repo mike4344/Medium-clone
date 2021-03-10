@@ -97,8 +97,9 @@ router.get('/:storyId(\\d+)/edit', requireAuth, csrfProtection, asyncHandler(asy
     res.render('story-doesnotexist', {
         title: 'Oops!'
     })
-    }
-}))
+
+}}))
+
 
 router.post('/:storyId(\\d+)/edit', requireAuth, csrfProtection, storyValidators, asyncHandler(async (req, res , next) =>{
     const storyId = parseInt(req.params.storyId, 10)
@@ -147,8 +148,9 @@ router.get('/:storyId(\\d+)/delete', requireAuth, csrfProtection, asyncHandler(a
         res.render('story-doesnotexist', {
             title: 'Oops!'
         })
-    }
-}))
+
+}}))
+
 
 router.post('/:storyId(\\d+)/delete', requireAuth, csrfProtection, asyncHandler(async (req, res, next)=>{
     const storyId = parseInt(req.params.storyId, 10)

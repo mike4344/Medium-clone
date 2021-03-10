@@ -1,0 +1,32 @@
+extends layout.pug
+
+include utils.pug
+
+block content
+    div(class='user-titlebox')
+        h1(class='user-name')= user.screenName
+            if user.pictureURL
+                div(class='user-picture-box')
+                    img(class='user-picture' src=`${user.pictureURL}`)
+            if user.biography 
+                div(class='user-biography-box')
+                    p(class='user-biography-text')= user.biography
+    
+    //mixin here
+    div(class='story-box-container')
+        each userStory in userStories 
+            +storyBox(userStory.title, userStory.subtitle, user, userStory.pictureURL, userStory.createdAt) 
+            //- /*might be a problem with the createdAt parameter*/
+
+
+    if currentUserId === user.id
+        div(class='profile-owner-buttons')
+            a(href=`/users/${user.id}/edit`)
+                button(class='button edit-button') Edit
+            a(href=`/users/${user.id}/delete`)
+                button(class='button delete-button') Delete
+
+
+
+
+

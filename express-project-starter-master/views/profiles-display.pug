@@ -15,7 +15,8 @@ block content
     //mixin here
     div(class='story-box-container')
         each userStory in userStories 
-            +storyBox(userStory.title, userStory.subtitle, user, userStory.pictureURL, userStory.createdAt) 
+            - let date = convertDate(userStory.createdAt);
+            +storyBox(userStory.title, userStory.subtitle, user, userStory.pictureURL, date) 
             //- /*might be a problem with the createdAt parameter*/
 
 

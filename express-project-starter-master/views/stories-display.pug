@@ -1,23 +1,25 @@
 extends layout
 block content
-    div(class='story-titlebox')
-        h1(class='story-title')= story.title
-            if story.subtitle
-                h3(class='story-subtitle')= story.subtitle
-            div(class='story-titlebox-author')
-                h5(class='story-titlebox-author-name')= story.User.screenName
-                if story.User.pictureURL
-                    img(class='story-titlebox-author-picture' src=`${story.User.pictureURL}`)
-    if story.pictureURL
-        div(class='story-storyImage')
-            img(src=`${story.pictureURL}`)
+    div(class='stories-display__page-container')
+        div(class='story-titlebox')
+            h1(class='story-titlebox__title')= story.title
+                if story.subtitle
+                    h3(class='story-titlebox__subtitle')= story.subtitle
+                div(class='story-titlebox__author-box')
+                    h5(class='story-titlebox__author-box__name')= story.User.screenName
+                    if story.User.pictureURL
+                        img(class='story-titlebox__author-box__image' src=`${story.User.pictureURL}`)
+                    if currentUserId === story.userId
+                        div(class='story-titlebox__author-box__author-buttons')
+                            a(href=`/stories/${story.id}/edit`)
+                                button(class='button story-titlebox__author-box__author-buttons_edit-button') Edit
+                            a(href=`/stories/${story.id}/delete`)
+                                button(class='button story-titlebox__author-box__author-buttons_delete-button') Delete
+        if story.pictureURL
+            div(class='story-image__container')
+                img(class='story-image' src=`${story.pictureURL}`)
 
-    div(class='story-body')
-        p(class='story-body-content')= story.body
+        div(class='story-body')
+            pre(class='story-body__content')=story.body
 
-    if currentUserId === story.userId
-        div(class='story-owner-buttons')
-            a(href=`/stories/${story.id}/edit`)
-                button(class='button edit-button') Edit
-            a(href=`/stories/${story.id}/delete`)
-                button(class='button delete-button') Delete
+    link(rel='stylesheet' href='/stylesheets/stories-display.css')

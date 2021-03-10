@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const { logoutUser } = require('../auth')
 
 const db = require("../db/models");
 const { csrfProtection, asyncHandler } = require("./utils");
@@ -14,5 +15,12 @@ router.get('/', asyncHandler( async(req, res, next)=> {
   }
   res.render('temp-home', { title: 'Animedium', stories, users, loggedInUser });
 }));
+
+router.get('/logout', asyncHandler( async (req, res) => {
+  if(req.session.auth){
+    logoutUser(req)
+  }
+  res.redirect('/')
+}))
 
 module.exports = router;

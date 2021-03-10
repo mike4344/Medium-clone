@@ -55,7 +55,8 @@
     grid-area: authorName;
 }
 
-*{border: 1px solid red;}
+/* *{border: 1px solid red;} */
+
 .story-titlebox__author-box__image{
     grid-area: span authorImage;
     box-sizing: border-box;

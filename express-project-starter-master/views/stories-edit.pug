@@ -3,14 +3,16 @@ extends layout.pug
 include utils.pug
 
 block content
-    +validationErrorSummary(errors)
-    form(action=`/stories/${story.id}/edit` method='post')
+    form(action=`/stories/${story.id}/edit` method='post' class='stories-create__container')
         input(type='hidden' name='_csrf' value=csrfToken)
-        +field('Title', 'title', story.title)
-        +field('Subtitle', 'subtitle', story.subtitle)
-        +field('Picture URL', 'pictureURL', story.pictureURL, 'url', "https://imgur.com/your-link-here")
-        +field('Story', 'body', story.body, 'textarea')
-
-        div
-            button(type="submit") Update Your Story
-            a(href=`/stories/${story.id}`) Cancel
+        input(type='hidden' name='userId' value=userId)
+        p(class='stories-create__title')= story.title
+        +fieldNoLabel('stories-create__subtitle', 'subtitle', story.subtitle, 'text', 'Subtitle...')
+        +fieldNoLabel('stories-create__image', 'pictureURL', story.pictureURL, 'url', "Image Link...")
+        +fieldNoLabel('stories-create__body', 'body', story.body, 'textarea', 'Write your story here...')
+        div(class='stories-create__button-container')
+            button(class='stories-create__button-post' type="submit") Edit your story
+            a(href=`/stories/${story.id}`)
+                button(class='stories-create__button-cancel' type="button") Cancel
+        +validationErrorSummary(errors)
+    link(rel='stylesheet' href='/stylesheets/stories-create.css')

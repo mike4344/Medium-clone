@@ -97,7 +97,9 @@ router.get('/:storyId(\\d+)/edit', requireAuth, csrfProtection, asyncHandler(asy
     res.render('story-doesnotexist', {
         title: 'Oops!'
     })
+
 }}))
+
 
 router.post('/:storyId(\\d+)/edit', requireAuth, csrfProtection, storyValidators, asyncHandler(async (req, res , next) =>{
     const storyId = parseInt(req.params.storyId, 10)
@@ -132,6 +134,10 @@ router.get('/:storyId(\\d+)/delete', requireAuth, csrfProtection, asyncHandler(a
     const storyId = parseInt(req.params.storyId, 10)
     const story = await db.Story.findByPk(storyId)
     if (story){
+        if(story.userId != req.session.auth.userId){
+            res.redirect(`/stories/${storyId}`);
+        }
+
 
         res.render('stories-delete', {
             title: 'Delete Story',
@@ -142,7 +148,9 @@ router.get('/:storyId(\\d+)/delete', requireAuth, csrfProtection, asyncHandler(a
         res.render('story-doesnotexist', {
             title: 'Oops!'
         })
+
 }}))
+
 
 router.post('/:storyId(\\d+)/delete', requireAuth, csrfProtection, asyncHandler(async (req, res, next)=>{
     const storyId = parseInt(req.params.storyId, 10)

@@ -1,9 +1,18 @@
 var express = require('express');
 var router = express.Router();
 
+const db = require("../db/models");
+const { csrfProtection, asyncHandler } = require("./utils");
+
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'a/A Express Skeleton Home' });
-});
+router.get('/', asyncHandler( async(req, res, next)=> {
+  const stories = await db.Story.findAll()
+  const users = await db.User.findAll()
+  let loggedInUser = null;
+  if(req.session.auth){
+    loggedInUser = await db.User.findByPk(req.session.auth.userId)
+  }
+  res.render('temp-home', { title: 'Animedium', stories, users, loggedInUser });
+}));
 
 module.exports = router;

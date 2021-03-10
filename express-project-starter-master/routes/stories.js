@@ -26,7 +26,17 @@ const storyValidators = [
         .exists({ checkFalsy:true })
         .withMessage('Please provide a title')
         .isLength({ max:100 })
-        .withMessage('Title should be less than 100 characters'),
+        .withMessage('Title should be less than 100 characters').custom((value) => {
+            return db.Story.findOne({
+                where: {
+                    title: value
+                }
+            }).then((story) => {
+                if (story) {
+                    return Promise.reject('The provided title is already in use.')
+                }
+            })
+        }),
     check('subtitle')
         .isLength({ max:255 })
         .withMessage('Subtitle should be less than 255 characters'),
@@ -43,10 +53,27 @@ router.post('/create', requireAuth, csrfProtection, storyValidators, asyncHandle
     //Deconstruct form inputs
     const { title, subtitle, pictureURL, body, userId } = req.body
     //create new story
-    const story = await db.Story.create({
+
+    const story = await db.Story.build({
         title, subtitle, pictureURL, body, userId
     })
-    res.redirect(`/stories/${story.id}`);
+
+    const validatorErrors = validationResult(req);
+
+    if (validatorErrors.isEmpty()) {
+        await story.save()
+        res.redirect(`/stories/${story.id}`)
+    } else {
+        const errors = validatorErrors.array().map((error) => error.msg);
+        res.render('stories-create', {
+            title: 'Create Story',
+            story,
+            userId,
+            errors,
+            csrfToken: req.csrfToken()
+        })
+
+    }
 }))
 
 router.get('/:storyId(\\d+)', asyncHandler(async (req, res, next) => {

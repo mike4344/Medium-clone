@@ -17,8 +17,6 @@ router.get('/:userId(\\d+)', asyncHandler(async(req, res, next) => {
     //grab user from the database
     const user = await db.User.findByPk(userId);
     //grab stories of user from the database
-    console.log("1", Op)
-    console.log("2", Sequelize)
     const userStories = await db.Story.findAll({
         where: {
             userId: { [Op.eq]: user.id }
@@ -39,6 +37,84 @@ router.get('/:userId(\\d+)', asyncHandler(async(req, res, next) => {
     })
 
 }));
+
+const profileValidators = [
+    check('screenName')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a value for the Screen Name.')
+        .isLength({ max: 50 })
+        .withMessage('Screen Name must be less than 50 characters.')
+        .custom((value) => {
+            return db.User.findOne({
+                where: {
+                    screenName: value
+                }
+            }).then((user) => {
+
+                if (user) {
+                    return Promise.reject('The provided Screen Name is already in use.')
+                }
+            })
+        }),
+    check('pictureURL')
+        //MAYBE -- add regex to check URL
+        .isLength({ max: 255 })
+        .withMessage('Picture URL should be less than 255 characters')
+]
+
+router.get('/:userId(\\d+)/edit', requireAuth, csrfProtection, asyncHandler(async (req, res, next) => {
+
+    const userId = parseInt(req.params.userId, 10);
+    //grab user from the database
+    const user = await db.User.findByPk(userId);
+
+    if (user.id === req.session.auth.userId) {
+        res.render('profiles-edit', {
+            title: 'Edit Profile',
+            user,
+            userId,
+            csrfToken: req.csrfToken()
+        })
+    } else {
+        res.redirect(`/users/${userId}`);
+    }
+}))
+
+
+router.post('/:userId(\\d+)/edit', requireAuth, profileValidators, csrfProtection, asyncHandler(async (req, res, next) => {
+
+    const userId = parseInt(req.params.userId, 10);
+    //grab user from the database
+    const user = await db.User.findByPk(userId);
+
+    if (user.id === req.session.auth.userId) {
+        const { screenName, biography, pictureURL } = req.body;
+
+        const updatedProfile = {
+            screenName,
+            biography,
+            pictureURL
+        };
+
+        const validatorErrors = validationResult(req);
+
+        if (validatorErrors.isEmpty()) {
+            await user.update(updatedProfile)
+            res.redirect(`/users/${userId}`)
+        } else {
+            const errors = validatorErrors.array().map((error) => error.msg);
+            res.render('profiles-edit', {
+                title: 'Edit Profile',
+                user,
+                errors,
+                userId,
+                csrfToken: req.csrfToken()
+            })
+        }
+    } else {
+        res.redirect(`/users/${userId}`)
+    }
+}))
 
 
 module.exports = router;

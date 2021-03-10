@@ -133,6 +133,10 @@ router.get('/:storyId(\\d+)/delete', requireAuth, csrfProtection, asyncHandler(a
     const storyId = parseInt(req.params.storyId, 10)
     const story = await db.Story.findByPk(storyId)
     if (story){
+        if(story.userId != req.session.auth.userId){
+            res.redirect(`/stories/${storyId}`);
+        }
+
 
         res.render('stories-delete', {
             title: 'Delete Story',

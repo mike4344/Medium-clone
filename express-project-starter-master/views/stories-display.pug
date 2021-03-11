@@ -9,13 +9,15 @@ block content
                     h5(class='story-titlebox__author-box__name')
                         a(href=`/users/${story.userId}/`)= story.User.screenName
                     if story.User.pictureURL
-                        img(class='story-titlebox__author-box__image' src=`${story.User.pictureURL}`)
+                        div(class='story-titlebox__author-box__image-container')
+                            a(href=`/users/${story.userId}/`)
+                                img(class='story-titlebox__author-box__image' src=`${story.User.pictureURL}`)
                     if currentUserId === story.userId
                         div(class='story-titlebox__author-box__author-buttons')
                             a(href=`/stories/${story.id}/edit`)
-                                button(class='button story-titlebox__author-box__author-buttons_edit-button') Edit
+                                button(class='story-titlebox__author-box__author-buttons_edit-button') Edit
                             a(href=`/stories/${story.id}/delete`)
-                                button(class='button story-titlebox__author-box__author-buttons_delete-button') Delete
+                                button(class='story-titlebox__author-box__author-buttons_delete-button') Delete
         if story.pictureURL
             div(class='story-image__container')
                 img(class='story-image' src=`${story.pictureURL}`)

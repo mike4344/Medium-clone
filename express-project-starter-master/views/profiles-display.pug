@@ -1,21 +1,26 @@
 extends layout.pug
-
+append head 
+    link(rel="stylesheet" href="/stylesheets/storybox.css")
+    link(rel="stylesheet" href="/stylesheets/userCard.css")
 include utils.pug
 
 block content
-    div(class='user-titlebox')
+    div(class="profile-banner")
         h1(class='user-name')= user.screenName
-            if user.pictureURL
-                div(class='user-picture-box')
-                    img(class='user-picture' src=`${user.pictureURL}`)
-            if user.biography 
-                div(class='user-biography-box')
-                    p(class='user-biography-text')= user.biography
+    
+    div(class='profile-card')
+        if user.pictureURL
+            div(class='user-picture-box')
+                img(class='user-picture' src=`${user.pictureURL}`)
+        if user.biography 
+            div(class='user-biography-box')
+                p(class='user-biography-text')= user.biography
     
     //mixin here
     div(class='story-box-container')
         each userStory in userStories 
-            +storyBox(userStory.title, userStory.subtitle, user, userStory.pictureURL, userStory.createdAt) 
+            - let date = convertDate(userStory.createdAt);
+            +storyBox(userStory.title, userStory.subtitle, user, userStory.pictureURL, date) 
             //- /*might be a problem with the createdAt parameter*/
 
 

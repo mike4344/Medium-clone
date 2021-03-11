@@ -20,8 +20,8 @@ mixin storyBox(title, subtitle, user, storyPicture, date)
   div(class='main-story-box')
     div(class='story-box-image'): img(src=storyPicture)
     div(class='story-box-author')
-      div(class='story-box-author-name')= user.screenName
-      div(class='story-box-author-picture')= user.pictureURL
+      div(class='story-box-author-name')= user.screenName 
+      img(class='story-box-author-picture' src=`${user.pictureURL}`) 
     div(class='story-box-titles')
       div(class='story-box-titles-title')= title
       div(class='story-box-titles-subtitle')= subtitle

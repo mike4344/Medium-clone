@@ -9,6 +9,8 @@ const { csrfProtection, asyncHandler, userValidators } = require("./utils");
 
 const { requireAuth } = require("../auth");
 
+const convertDate = (timestamp) => timestamp.toString().slice(0, 16);
+    
 
 router.get('/:userId(\\d+)', asyncHandler(async(req, res, next) => {
     //grabbing id from url
@@ -22,6 +24,9 @@ router.get('/:userId(\\d+)', asyncHandler(async(req, res, next) => {
             userId: { [Op.eq]: user.id }
         }
     });
+    
+
+
 
     let currentUserId = null;
 
@@ -33,6 +38,7 @@ router.get('/:userId(\\d+)', asyncHandler(async(req, res, next) => {
         title: `${user.screenName}\'s Profile`,
         user,
         userStories,
+        convertDate,
         currentUserId
     })
 
@@ -44,7 +50,7 @@ const profileValidators = [
         .withMessage('Please provide a value for the Screen Name.')
         .isLength({ max: 50 })
         .withMessage('Screen Name must be less than 50 characters.')
-        .custom((value) => {
+        .custom((value, { req }) => {
             return db.User.findOne({
                 where: {
                     screenName: value
@@ -52,8 +58,14 @@ const profileValidators = [
             }).then((user) => {
 
                 if (user) {
+
+                    if (user.id === req.session.auth.userId) {
+                        return;
+                    }
+
                     return Promise.reject('The provided Screen Name is already in use.')
                 }
+                
             })
         }),
     check('pictureURL')

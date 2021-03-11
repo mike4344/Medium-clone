@@ -26,7 +26,30 @@ const storyValidators = [
         .exists({ checkFalsy:true })
         .withMessage('Please provide a title')
         .isLength({ max:100 })
-        .withMessage('Title should be less than 100 characters'),
+        .withMessage('Title should be less than 100 characters').custom((value) => {
+            return db.Story.findOne({
+                where: {
+                    title: value
+                }
+            }).then((story) => {
+                if (story) {
+                    return Promise.reject('The provided title is already in use.')
+                }
+            })
+        }),
+    check('subtitle')
+        .isLength({ max:255 })
+        .withMessage('Subtitle should be less than 255 characters'),
+    check('pictureURL')
+    //MAYBE -- add regex to check URL
+        .isLength({ max:255 })
+        .withMessage('Picture URL should be less than 255 characters'),
+    check('body')
+        .exists({ checkFalsy: true })
+        .withMessage('Body content required!'),
+]
+
+const updateValidators = [
     check('subtitle')
         .isLength({ max:255 })
         .withMessage('Subtitle should be less than 255 characters'),
@@ -43,10 +66,27 @@ router.post('/create', requireAuth, csrfProtection, storyValidators, asyncHandle
     //Deconstruct form inputs
     const { title, subtitle, pictureURL, body, userId } = req.body
     //create new story
-    const story = await db.Story.create({
+
+    const story = await db.Story.build({
         title, subtitle, pictureURL, body, userId
     })
-    res.redirect(`/stories/${story.id}`);
+
+    const validatorErrors = validationResult(req);
+
+    if (validatorErrors.isEmpty()) {
+        await story.save()
+        res.redirect(`/stories/${story.id}`)
+    } else {
+        const errors = validatorErrors.array().map((error) => error.msg);
+        res.render('stories-create', {
+            title: 'Create Story',
+            story,
+            userId,
+            errors,
+            csrfToken: req.csrfToken()
+        })
+
+    }
 }))
 
 router.get('/:storyId(\\d+)', asyncHandler(async (req, res, next) => {
@@ -101,13 +141,12 @@ router.get('/:storyId(\\d+)/edit', requireAuth, csrfProtection, asyncHandler(asy
 }}))
 
 
-router.post('/:storyId(\\d+)/edit', requireAuth, csrfProtection, storyValidators, asyncHandler(async (req, res , next) =>{
+router.post('/:storyId(\\d+)/edit', requireAuth, csrfProtection, updateValidators, asyncHandler(async (req, res , next) =>{
     const storyId = parseInt(req.params.storyId, 10)
     const story = await db.Story.findByPk(storyId)
     if(story.userId === req.session.auth.userId){
-        const {title, subtitle, pictureURL, body} = req.body
+        const {subtitle, pictureURL, body} = req.body
         const updatedStory = {
-            title,
             subtitle,
             pictureURL,
             body

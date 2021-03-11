@@ -4,7 +4,7 @@ html
       block head
         title=`Animedium-${title}`
         link(rel='stylesheet' href='/stylesheets/reset.css')
-  body
+  body(style='background-color: #F0F0F0')
     nav(style='background: darkblue')  
       a(href="/")
         img(src="https://i.pinimg.com/originals/02/07/2a/02072a87d479f3b0da5ae73160107b18.png" width='60px' height='60px')
@@ -12,5 +12,7 @@ html
         button(type="button") Login
       a(href="/stories/create") 
         button(type="button") Write New Story
+      a(href="/logout")
+        button(type="button") Logout
 
     block content

@@ -197,7 +197,7 @@ module.exports = {
     {
       email:'bakugo@gmail.com',
       hashedPassword: await bcrypt.hash('Passw0rd!', 10),
-      screenName:'bakugo',
+      screenName:'Bakugo',
       pictureURL: 'https://i.imgur.com/1707D6A.jpg',
       biography: 'I am going to beat all of you losers!',
       createdAt: new Date(),

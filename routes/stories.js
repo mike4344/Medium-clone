@@ -99,14 +99,26 @@ router.get('/:storyId(\\d+)', asyncHandler(async (req, res, next) => {
     if (story){
 
         let currentUserId = null;
+        let currentUserStoryLike = null;
 
         if(req.session.auth) {
             currentUserId = req.session.auth.userId;
+
+            const storyLike = await db.StoryLike.findOne({
+                where: {
+                    storyId: storyId,
+                    userId: currentUserId,
+                }
+            })
+            if(storyLike){
+                currentUserStoryLike = storyLike;
+            }
         }
         //Renders story
         res.render('stories-display', {
             title: story.title,
             story,
+            currentUserStoryLike,
             currentUserId
         })
     } else {

@@ -1,0 +1,40 @@
+.nav-bar {
+    position:sticky;
+    top: 0;
+    background-color:darkblue;
+    align-items: center;
+    display:grid;
+    grid-template-rows: 55px;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-areas: 
+        'home txt . . . . . . . . . . . . . . . userProfile writeStory logout'
+}
+
+.nav-bar__home-link {
+   grid-area:home;
+}
+.nav-bar__text {
+    grid-area:txt;
+}
+
+.nav-bar__login {
+    grid-area:userProfile;
+}
+
+.nav-bar__new-story {
+    grid-area:writeStory;
+}
+
+.nav-bar__logout {
+    grid-area:logout;
+}
+
+.nav-bar__text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-bar__image {
+    height: 34px;
+    width: 34px;
+}

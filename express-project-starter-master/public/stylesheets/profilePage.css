@@ -1,0 +1,44 @@
+.profile-main-body {
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+    "banner banner"
+    "banner banner"
+    "card stories";
+}
+
+
+.profile-banner {
+    box-sizing: border-box;
+    /* height: 200px;
+    width: 500px; */
+    /* grid-area: span banner; */
+    color: white;
+    /* display: block; */
+    /* flex-direction: row-reverse; */
+    
+}
+
+.user-picture-box {
+    height: 100%;
+}
+
+.user-picture {
+    /* position: absolute; */
+    /* height: 10px; */
+    z-index: 1;
+}
+
+.user-name {
+    position: fixed;
+    /* float: left; */
+    box-sizing: border-box;
+    margin-left: 10px;
+    margin-bottom: 100px;
+    z-index: 2;
+    left: 100px;
+    bottom: 100px;
+    /* height: 500px; */
+}

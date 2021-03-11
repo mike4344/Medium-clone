@@ -1,27 +1,32 @@
 extends layout.pug
 append head 
+    link(rel="stylesheet" href="/stylesheets/profilePage.css")
     link(rel="stylesheet" href="/stylesheets/storybox.css")
     link(rel="stylesheet" href="/stylesheets/userCard.css")
 include utils.pug
 
 block content
-    div(class="profile-banner")
-        h1(class='user-name')= user.screenName
-    
-    div(class='profile-card')
-        if user.pictureURL
-            div(class='user-picture-box')
-                img(class='user-picture' src=`${user.pictureURL}`)
-        if user.biography 
-            div(class='user-biography-box')
-                p(class='user-biography-text')= user.biography
-    
-    //mixin here
-    div(class='story-box-container')
-        each userStory in userStories 
-            - let date = convertDate(userStory.createdAt);
-            +storyBox(userStory.title, userStory.subtitle, user, userStory.pictureURL, date) 
-            //- /*might be a problem with the createdAt parameter*/
+    div(class="profile-main-body")
+        div(class="profile-banner")
+            if user.pictureURL
+                div(class='user-picture-box')
+                    h1(class='user-name')= user.screenName
+                    img(class='user-picture' src=`${user.pictureURL}`)
+        
+        div(class='profile-card')
+            if user.pictureURL
+                div(class='user-picture-box')
+                    img(class='user-picture' src=`${user.pictureURL}`)
+            if user.biography 
+                div(class='user-biography-box')
+                    p(class='user-biography-text')= user.biography
+        
+        //mixin here
+        div(class='story-box-container')
+            each userStory in userStories 
+                - let date = convertDate(userStory.createdAt);
+                +storyBox(userStory.title, userStory.subtitle, user, userStory.pictureURL, date) 
+                //- /*might be a problem with the createdAt parameter*/
 
 
     if currentUserId === user.id

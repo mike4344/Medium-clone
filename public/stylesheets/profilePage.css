@@ -1,0 +1,29 @@
+
+.profile-main-body {
+    position: relative;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "card stories";
+}
+
+.banner-picture-box {
+   
+    height: 300px;
+    width: 100%;
+}
+
+
+.profile-card {
+    grid-area: card;
+    position: sticky;
+    top: 0;
+
+}
+
+.story-box-container {
+    grid-area: stories;
+
+}

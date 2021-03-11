@@ -12,6 +12,12 @@ block content
                         div(class='story-titlebox__author-box__image-container')
                             a(href=`/users/${story.userId}/`)
                                 img(class='story-titlebox__author-box__image' src=`${story.User.pictureURL}`)
+                    div(class=`story-titlebox__like-button-container ${story.id}` id='like-button' name=story.id)
+                        if currentUserId    
+                            if currentUserStoryLike
+                                img(src='../icons8-star-64-yellow.png' class='story-titlebox__like-button-image active')
+                            else 
+                                img(src='../icons8-star-64.png' class='story-titlebox__like-button-image')
                     if currentUserId === story.userId
                         div(class='story-titlebox__author-box__author-buttons_edit-button')
                             a(href=`/stories/${story.id}/edit`)
@@ -27,3 +33,4 @@ block content
             pre(class='story-body__content')=story.body
 
     link(rel='stylesheet' href='/stylesheets/stories-display.css')
+    script(src='/javascripts/storylike.js')

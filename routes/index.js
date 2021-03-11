@@ -13,7 +13,7 @@ router.get('/', asyncHandler( async(req, res, next)=> {
   if(req.session.auth){
     loggedInUser = await db.User.findByPk(req.session.auth.userId)
   }
-  res.render('temp-home', { title: 'Animedium', stories, users, loggedInUser });
+  res.render('temp-home', { title: 'Home', stories, users, loggedInUser });
 }));
 
 router.get('/logout', asyncHandler( async (req, res) => {

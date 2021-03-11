@@ -7,17 +7,23 @@ block content
                     h3(class='story-titlebox__subtitle')= story.subtitle
                 div(class='story-titlebox__author-box')
                     h5(class='story-titlebox__author-box__name')
-                        a(href=`/users/${story.userId}/`)= story.User.screenName
+                        a(href=`/users/${story.userId}/` class='story-titlebox__author-box__name-content')= story.User.screenName
                     if story.User.pictureURL
                         div(class='story-titlebox__author-box__image-container')
                             a(href=`/users/${story.userId}/`)
                                 img(class='story-titlebox__author-box__image' src=`${story.User.pictureURL}`)
+                    div(class='story-titlebox__author-box__date-created')
+                        -const convertDate = (timestamp) => timestamp.toString().slice(0, 16);
+                        - let date = convertDate(story.createdAt)
+                        p(class='story-titlebox__author-box__date-created-content')=date
                     div(class=`story-titlebox__like-button-container ${story.id}` id='like-button' name=story.id)
-                        if currentUserId    
+                        if currentUserId
                             if currentUserStoryLike
-                                img(src='../icons8-star-64-yellow.png' class='story-titlebox__like-button-image active')
-                            else 
-                                img(src='../icons8-star-64.png' class='story-titlebox__like-button-image')
+                                img(src='../icons8-star-64-yellow.png' class='story-titlebox__like-button-image active' id='story-titlebox__like-button-image')
+                            else
+                                img(src='../icons8-star-64.png' class='story-titlebox__like-button-image' id='story-titlebox__like-button-image')
+                    div(class='story-titlebox__like-count-container' id='story-titlebox__like-count-container')
+                        p(class='story-titlebox__like-count' id='story-titlebox__like-count')=likeCount
                     if currentUserId === story.userId
                         div(class='story-titlebox__author-box__author-buttons_edit-button')
                             a(href=`/stories/${story.id}/edit`)

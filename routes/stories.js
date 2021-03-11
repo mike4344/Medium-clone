@@ -101,6 +101,12 @@ router.get('/:storyId(\\d+)', asyncHandler(async (req, res, next) => {
         let currentUserId = null;
         let currentUserStoryLike = null;
 
+        let likeCount = await db.StoryLike.findAndCountAll({
+            where: {
+                storyId: storyId
+            }
+        })
+        console.log(likeCount.count)
         if(req.session.auth) {
             currentUserId = req.session.auth.userId;
 
@@ -119,7 +125,8 @@ router.get('/:storyId(\\d+)', asyncHandler(async (req, res, next) => {
             title: story.title,
             story,
             currentUserStoryLike,
-            currentUserId
+            currentUserId,
+            likeCount: likeCount.count
         })
     } else {
         res.render('story-doesnotexist', {

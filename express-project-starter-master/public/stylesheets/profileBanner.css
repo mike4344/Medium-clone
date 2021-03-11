@@ -1,0 +1,27 @@
+.profile-banner {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.banner-picture-box {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    background-color: black;
+
+}
+
+.banner-picture {
+    height: 100%;
+}
+
+.user-name {
+    position: absolute;
+    color: white;
+    bottom: 40%;
+    left: 10%;
+    font-size: 50px;
+}

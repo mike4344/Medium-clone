@@ -1,18 +1,20 @@
 extends layout.pug
 append head 
-    link(rel="stylesheet" href="/stylesheets/profilePage.css")
+    link(rel="stylesheet" href="/stylesheets/profileBanner.css")
     link(rel="stylesheet" href="/stylesheets/storybox.css")
     link(rel="stylesheet" href="/stylesheets/userCard.css")
+    link(rel="stylesheet" href="/stylesheets/profilePage.css")
 include utils.pug
 
 block content
-    div(class="profile-main-body")
-        div(class="profile-banner")
-            if user.pictureURL
-                div(class='user-picture-box')
-                    h1(class='user-name')= user.screenName
-                    img(class='user-picture' src=`${user.pictureURL}`)
+    div(class='profile-banner')
+        if user.pictureURL
+            div(class='banner-picture-box')
+                img(class='banner-picture' src=`${user.pictureURL}`)
+                h1(class='user-name')= user.screenName
         
+    div(class='profile-main-body')
+
         div(class='profile-card')
             if user.pictureURL
                 div(class='user-picture-box')
@@ -20,21 +22,18 @@ block content
             if user.biography 
                 div(class='user-biography-box')
                     p(class='user-biography-text')= user.biography
-        
+            if currentUserId === user.id
+                div(class='profile-owner-buttons')
+                    a(href=`/users/${user.id}/edit`)
+                        button(class='button edit-button') Edit Profile
+            
         //mixin here
         div(class='story-box-container')
             each userStory in userStories 
                 - let date = convertDate(userStory.createdAt);
                 +storyBox(userStory.title, userStory.subtitle, user, userStory.pictureURL, date) 
-                //- /*might be a problem with the createdAt parameter*/
 
 
-    if currentUserId === user.id
-        div(class='profile-owner-buttons')
-            a(href=`/users/${user.id}/edit`)
-                button(class='button edit-button') Edit
-            a(href=`/users/${user.id}/delete`)
-                button(class='button delete-button') Delete
 
 
 

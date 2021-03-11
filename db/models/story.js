@@ -29,6 +29,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   Story.associate = function(models) {
     Story.belongsTo(models.User, {foreignKey: 'userId'});
+    Story.hasMany(models.StoryLike, {foreignKey: 'storyId'});
   };
   return Story;
 };

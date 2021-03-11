@@ -64,8 +64,8 @@
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(10, 1fr);
     grid-template-areas:
-        'authorImage authorImage authorName authorName authorName authorName . . . editStory'
-        'authorImage authorImage dateCreated dateCreated dateCreated dateCreated . . . deleteStory';
+        'authorImage authorImage authorName authorName authorName authorName . . editStory deleteStory'
+        'authorImage authorImage dateCreated dateCreated dateCreated dateCreated . . . likeButton';
 }
 
 .story-titlebox__author-box__name {
@@ -118,6 +118,21 @@
     word-wrap: break-word;
 }
 
+.story-titlebox__like-button-container {
+    grid-area: likeButton;
+    height: 34px;
+    width: 34px;
+}
+
+.story-titlebox__like-button-image {
+    width:100%;
+    height:100%;
+}
+
+.story-titlebox__like-button-image:hover {
+    box-shadow: 4px 4px 4px rgba(200, 200, 200, 0.65);
+    background-color: rgba(230, 230, 230, .8);
+}
 
 .story-titlebox__author-box__author-buttons_edit-button {
     height: 34px;

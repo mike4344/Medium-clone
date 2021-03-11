@@ -42,6 +42,8 @@ app.use(
   // create Session table if it doesn't already exist
 store.sync();
 
+app.use('/static', express.static(path.join()))
+
 app.use(indexRouter);
 app.use('/login', loginRouter);
 app.use('/signup', signUpRouter);

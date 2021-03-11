@@ -1,14 +1,31 @@
-.stories-display__page-container {
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns:  1fr 1fr 1fr;
-    grid-template-areas:
+@media screen and (min-width:800px){
+    .stories-display__page-container {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns:  1fr 1fr 1fr;
+        grid-template-areas:
         '. titlebox .'
         '. storyImage .'
         '. storyImage .'
         '. body .'
         '. body .'
         '. body .'
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .stories-display__page-container {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns:  1fr;
+        grid-template-areas:
+            'titlebox'
+            'storyImage'
+            'storyImage'
+            'body'
+            'body'
+            'body'
+    }
 }
 
 .story-titlebox {
@@ -47,8 +64,8 @@
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(10, 1fr);
     grid-template-areas:
-        'authorImage authorImage authorName authorName authorName authorName . . . .'
-        'authorImage authorImage dateCreated dateCreated dateCreated dateCreated . .  authorButtons authorButtons';
+        'authorImage authorImage authorName authorName authorName authorName . . . editStory'
+        'authorImage authorImage dateCreated dateCreated dateCreated dateCreated . . . deleteStory';
 }
 
 .story-titlebox__author-box__name {
@@ -61,6 +78,8 @@
 
 .story-titlebox__author-box__image-container{
     grid-area: authorImage;
+    height: 75px;
+    width: 75px;
 }
 
 .story-titlebox__author-box__image{
@@ -82,6 +101,7 @@
 
 .story-image__container {
     grid-area: storyImage;
+    width: 100%;
 }
 
 .story-image {
@@ -90,38 +110,46 @@
 
 .story-body{
     grid-area: body;
-    word-wrap: break-word;
+    overflow: hidden;
 }
 
 .story-body__content {
     white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 
 .story-titlebox__author-box__author-buttons_edit-button {
-    height: 75%;
-    background-color: darkblue;
-    color: white;
-    text-shadow: 2px 2px 2px rgba(215, 219, 219, .65);
-    border-radius: 25px;
-    border: 2px solid black;
+    height: 34px;
+    width: 34px;
+    grid-area:editStory;
+}
+
+.story-titlebox__authorbox__edit-icon {
+    width: 100%;
+    height:100%
 }
 
 .story-titlebox__author-box__author-buttons_edit-button:hover{
-    box-shadow: 4px 4px 4px rgba(59, 59, 59, 0.65);
-    background-color: rgba(6, 12, 71, 1);
+    box-shadow: 4px 4px 4px rgba(200, 200, 200, 0.65);
+    background-color: rgba(230, 230, 230, .8);
+}
+
+
+.story-titlebox__author-box__author-buttons_delete-button {
+    height: 34px;
+    width: 34px;
+    grid-area:deleteStory;
+}
+
+.story-titlebox__authorbox__delete-icon {
+    width: 100%;
+    height:100%
 }
 
 .story-titlebox__author-box__author-buttons_delete-button:hover{
-    box-shadow: 4px 4px 4px rgba(59, 59, 59, 0.65);
-    background-color: rgba(120, 10, 10, 1);
+    box-shadow: 4px 4px 4px rgba(200, 200, 200, 0.65);
+    background-color: rgba(230, 230, 230, .8)
 }
 
-.story-titlebox__author-box__author-buttons_delete-button {
-    height: 75%;
-    background-color: darkred;
-    border: 2px solid black;
-    color: white;
-    text-shadow: 2px 2px 2px rgba(215, 219, 219, .65);
-    border-radius: 25px;
-}
+

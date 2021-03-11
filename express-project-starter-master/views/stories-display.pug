@@ -13,11 +13,12 @@ block content
                             a(href=`/users/${story.userId}/`)
                                 img(class='story-titlebox__author-box__image' src=`${story.User.pictureURL}`)
                     if currentUserId === story.userId
-                        div(class='story-titlebox__author-box__author-buttons')
+                        div(class='story-titlebox__author-box__author-buttons_edit-button')
                             a(href=`/stories/${story.id}/edit`)
-                                button(class='story-titlebox__author-box__author-buttons_edit-button') Edit
+                                img(src='../icons8-edit-64.png' class='story-titlebox__authorbox__edit-icon')
+                        div(class='story-titlebox__author-box__author-buttons_delete-button')
                             a(href=`/stories/${story.id}/delete`)
-                                button(class='story-titlebox__author-box__author-buttons_delete-button') Delete
+                                img(src='../icons8-trash-26.png' class='story-titlebox__authorbox__delete-icon')
         if story.pictureURL
             div(class='story-image__container')
                 img(class='story-image' src=`${story.pictureURL}`)

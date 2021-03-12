@@ -1,7 +1,7 @@
 .nav-bar {
     position:sticky;
     top: 0;
-    background-color:darkblue;
+    background-color:rgb(17, 17, 146);
     align-items: center;
     display:grid;
     grid-template-rows: 55px;
@@ -9,7 +9,16 @@
     grid-template-areas:
         'home txt . . . . . . . . . . . . . . . userProfile writeStory logout'
 }
-
+@media (max-width: 768px){
+    .nav-bar {
+        position:sticky;
+        top: 0;
+        background-color:rgb(17, 17, 146);
+        align-items: center;
+        display:flex;
+        justify-content:space-between;
+    }
+}
 .nav-bar__home-link {
    grid-area:home;
 
@@ -36,12 +45,13 @@
 
 .nav-bar__text {
 
+    text-shadow: 1px 1px 1px rgba(220, 220, 220, .55);
+    color:rgb(70, 70, 70);
     font-size: 24px;
     font-weight: bold;
 }
 
 .nav-bar__image {
-
     height: 34px;
     width: 34px;
 }
@@ -54,7 +64,7 @@ a.nav-link{
 }
 a.nav-link:hover{
     background-color: blue;
-    border-bottom: 1px solid white;
-    border-right: 1px solid white;
-    box-shadow: 1px 1px 1px white;
+    border-bottom: 2px solid white;
+    border-left: 1px solid white;
+    box-sizing: border-box;
 }

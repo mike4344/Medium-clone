@@ -66,7 +66,7 @@ router.post('/random-demo', asyncHandler( async (req, res) => {
         const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
         if (passwordMatch){
             loginUser(req, res, user);
-            return res.redirect('/');
+            res.redirect('/');
         }
     }
 }))

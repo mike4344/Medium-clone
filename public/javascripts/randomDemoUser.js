@@ -29,20 +29,24 @@ document.addEventListener('DOMContentLoaded', async () => {
     const randomDemoUserButton = document.getElementById('random-demo-user')
     randomDemoUserButton.addEventListener('click', async () => {
 
-        await fetch('/logout');        
+        await fetch('/logout');
         const demoCreds = {
             email: returnRandomEmail(userArray),
             password: 'Passw0rd!'
         }
-        
-        await fetch('login/random-demo', { 
+
+        const fetchRes = await fetch('login/random-demo', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'content-type': 'application/json'
             },
             body: JSON.stringify(demoCreds)
-        });
+        })
+        if (fetchRes) {
+            window.location.replace('/')
+        }
+
     })
 
 })

@@ -128,7 +128,7 @@ router.get('/:storyId(\\d+)', asyncHandler(async (req, res, next) => {
             story,
             currentUserStoryLike,
             currentUserId,
-            currentUser
+            currentUser,
             likeCount: likeCount.count
         })
     } else {

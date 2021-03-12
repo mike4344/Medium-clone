@@ -16,7 +16,7 @@ const commentValidator = [
 
 router.post('/stories/:storyId(\\d+)/comments', requireAuth, commentValidator, asyncHandler(async (req, res) => {
     const { body, userId, storyId } = req.body;
-    console.log(req);
+    // console.log(req);
 
     const comment = await db.Comment.build({
         body, userId, storyId

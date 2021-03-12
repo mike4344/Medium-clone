@@ -16,14 +16,18 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', placeholder = 
       input(type=fieldType id=fieldName name=fieldName value=fieldValue placeholder=placeholder)
 
 
-mixin storyBox(title, subtitle, user, storyPicture, date)
+mixin storyBox(storyId, title, subtitle, user, storyPicture, date)
   div(class='main-story-box')
-    div(class='story-box-image'): img(src=storyPicture)
+    div(class='story-box-image') 
+      a(href=`/stories/${storyId}`)
+        img(class='story-box-nestedImage' src=storyPicture)
     div(class='story-box-author')
-      div(class='story-box-author-name')= user.screenName 
-      img(class='story-box-author-picture' src=`${user.pictureURL}`) 
+      a(href=`/users/${user.id}`)
+        div(class='story-box-author-name')= user.screenName 
+        img(class='story-box-author-picture' src=`${user.pictureURL}`) 
     div(class='story-box-titles')
-      div(class='story-box-titles-title')= title
+      a(href=`/stories/${storyId}`)
+        div(class='story-box-titles-title')= title
       div(class='story-box-titles-subtitle')= subtitle
     div(class='story-box-info')
       div(class='story-box-info-date')= date
@@ -42,5 +46,3 @@ mixin fieldNoLabel(classList, fieldName, fieldValue, fieldType = 'text', placeho
 
 
 //- mixin comments()
-
-

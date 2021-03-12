@@ -24,20 +24,26 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 
 }
-.story-box-image > img {
+.story-box-nestedImage {
     max-width: 100%;
     max-height: 100%;
+    
 }
 
 .story-box-author {
     grid-area: author;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    align-items: flex-end;
 }
 
+.story-box-author > a {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
 .story-box-author-name {
     box-sizing: border-box;
     margin: 5px;
@@ -47,7 +53,7 @@
     font-style: italic;
 }
 
-.story-box-author > img {
+.story-box-author-picture {
     box-sizing: border-box;
     margin: 5px;
     max-width: 100%;

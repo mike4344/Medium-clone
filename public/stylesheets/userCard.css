@@ -1,9 +1,10 @@
 .profile-card {
-    background: linear-gradient(to left, yellow, rgba(0, 26, 255, 0.774));
+    /* background: linear-gradient(to left, yellow, rgba(0, 26, 255, 0.774)); */
     box-sizing: border-box;
     position: sticky;
     width: 100%;
     height: 100%;
+    border: 3px;
     display: grid;
     grid-template-rows: 1fr 1fr 10%;
     grid-template-areas:
@@ -14,16 +15,25 @@
 
 .user-picture-box {
     grid-area: picture;
+    /* border-radius: 100px; */
+    margin-top: 10%;
+    margin-left: 10%;
     
 }
 
 .user-picture { 
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    box-sizing: border-box;
+    width: 20em;
+    height: 20em;
+    border-radius: 50%;
+    /* box-shadow: -3px -3px 30px 30px rgba(0,0,0,.15); */
 }
 
 .user-biography-box {
+    position: relative;
     grid-area: biography;
+    border: 1px solid black;
 }
 
 .profile-owner-buttons {

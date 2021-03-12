@@ -10,7 +10,7 @@
     display: flex;
     justify-content: center;
     overflow: hidden;
-    background: repeating-linear-gradient( black, white, black 300px);
+    background: linear-gradient(to right, purple, yellow, red, blue);
     background-color: black;
 }
 
@@ -19,7 +19,7 @@
     display: none;
 }
 
-.user-name {
+.logo {
     display: flex;
     position: relative;
     /* color: white; */
@@ -27,7 +27,7 @@
     left: 10%; */
     font-size: 9vmax;
     font-family: 'Cinzel', serif;
-    font-weight: bold;
+    font-weight: 900;
     /* font-variant: small-caps; */
     text-transform: capitalize;
     justify-self: center;

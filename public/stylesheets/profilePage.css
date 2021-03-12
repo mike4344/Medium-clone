@@ -1,12 +1,13 @@
 
 .profile-main-body {
     position: relative;
-    background-color: white;
+    background-color: #f0f0f0;
     display: grid;
     grid-template-columns: 30% 70%;
     grid-template-rows: auto;
     grid-template-areas:
-    "card stories";
+    "card stories"
+    "footer footer";
 }
 
 .banner-picture-box {

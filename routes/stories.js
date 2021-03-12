@@ -1,5 +1,5 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 
 const { check, validationResult } = require("express-validator");
 const { csrfProtection, asyncHandler, userValidators } = require("./utils");
@@ -100,9 +100,11 @@ router.get('/:storyId(\\d+)', asyncHandler(async (req, res, next) => {
 
         let currentUserId = null;
         let currentUserStoryLike = null;
+        let currentUser = null;
 
         if(req.session.auth) {
             currentUserId = req.session.auth.userId;
+            currentUser = await db.User.findByPk(currentUserId)
 
             const storyLike = await db.StoryLike.findOne({
                 where: {
@@ -119,7 +121,8 @@ router.get('/:storyId(\\d+)', asyncHandler(async (req, res, next) => {
             title: story.title,
             story,
             currentUserStoryLike,
-            currentUserId
+            currentUserId,
+            currentUser
         })
     } else {
         res.render('story-doesnotexist', {

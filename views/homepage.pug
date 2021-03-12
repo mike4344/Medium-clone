@@ -2,21 +2,30 @@ extends layout
 
 append head 
     link(rel="stylesheet" href="/stylesheets/homepage.css")
+    link(rel="stylesheet" href="/stylesheets/profileBanner.css")
+    link(link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;900&display=swap" rel="stylesheet")
     
-    //- link(rel="stylesheet" href="/stylesheets/storybox.css")
     
     
 include utils.pug
 
 block content
 
+    div(class='profile-banner')
+        if user.pictureURL
+            div(class='banner-picture-box')
+                img(class='banner-picture' src=`${user.pictureURL}`)
+                h1(class='logo') A N I M E D I U M
     div(class="homepage-stories")
+        div(class='high-like-stories')
+            H2(class='stories-label') Most Liked Stories
         div(class="h2-container")
-            H2(class="recent-stories") Newest Stories
+            H2(class="stories-label") Newest Stories
         div(class='story-box-container')
             each story in recentStories 
                 - let date = convertDate(story.createdAt);
                 - let user = grabUser(story.userId);
                 +storyBox(story.id, story.title, story.subtitle, story.userId, story.pictureURL, date) 
+    
 
     

@@ -41,14 +41,17 @@
     font-weight: 900;
     justify-self: center;
     left: 5%;
+    color: #062743;
 }
 
 .user-biography-box {
     position: relative;
     grid-area: biography;
     border: 5px solid;
-    border-image-source: linear-gradient(to right, purple, yellow, red, blue);
+    /* border-image-source: repeating-linear-gradient(to left, #062743, #113a5d, #c4ffdd, #f9f9f9); */
+    border-color: #062743;
     border-image-slice: 1;
+    color: #113a5d;
 }
 
 .profile-owner-buttons {

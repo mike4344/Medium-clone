@@ -5,6 +5,7 @@ append head
     link(rel="stylesheet" href="/stylesheets/userCard.css")
     link(rel="stylesheet" href="/stylesheets/profilePage.css")
     link(link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;900&display=swap" rel="stylesheet")
+    script(src='/javascripts/storylike.js')
 
 include utils.pug
 
@@ -34,7 +35,15 @@ block content
         div(class='story-box-container')
             each userStory in userStories 
                 - let date = convertDate(userStory.createdAt);
-                +storyBox(userStory.id, userStory.title, userStory.subtitle, user, userStory.pictureURL, date) 
+                +storyBox(userStory.id, userStory.title, userStory.subtitle, user, userStory.pictureURL, date)
+                //- div(class=`storyBox__like-button-container ${userStory.id}` id='like-button' name=userStory.id)
+                //-     if currentUserId
+                //-         if currentUserStoryLike
+                //-             img(src='../icons8-star-64-yellow.png' class='storyBox__like-button-image active' id='storyBox__like-button-image')
+                //-         else
+                //-             img(src='../icons8-star-64.png' class='storyBox__like-button-image' id='storyBox__like-button-image')
+                //- div(class='storyBox__like-count-container' id='storyBox__like-count-container')
+                //-     p(class='storyBox__like-count' id='storyBox__like-count')=likeCount
 
 
 

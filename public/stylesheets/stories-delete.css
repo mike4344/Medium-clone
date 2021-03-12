@@ -20,6 +20,8 @@
 }
 }
 .story-title{
+    overflow: hidden;
+    word-wrap: break-word;
     grid-area: title;
     text-align: center;
     font-size: xxx-large;

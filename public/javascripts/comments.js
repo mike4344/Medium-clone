@@ -43,16 +43,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             //Checks to see if user has enabled "view comments"
             if(commentsVisible){
                 //Checks for and removes error messages before adding new comments
-                if(emptyMessage){
-                    const msg = document.getElementById('no-comments-message')
-                    msg.innerHTML = '';
-                    emptyMessage = false;
-                }
-
-                if(errorMessage){
-                    const msg = document.getElementById('error-message')
-                    msg.innerHTML = '';
-                    errorMessage = false;
+                if(emptyMessage || errorMessage){
+                    commentUL.innerHTML = '';
+                    if(emptyMessage) emptyMessage = false;
+                    if(errorMessage) errorMessage = false;
                 }
 
                 //more 'hidden' inputs from our text area -- aka class list
@@ -86,11 +80,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             commentAddButton.classList.remove('hidden');         
         }else{
             //Displays an error message when body is empty//
-            const msg = document.createElement('h3');
-            msg.setAttribute('id', 'error-message')
-            msg.innerText = 'Please enter a comment!';
-            commentUL.appendChild(msg);
-            errorMessage = true;
+            //if statement prevents message from being rendered twice
+            if(!errorMessage){
+                const msg = document.createElement('h3');
+                msg.setAttribute('id', 'error-message');
+                msg.innerText = 'Please enter a comment!';
+                commentUL.appendChild(msg);
+                errorMessage = true;
+            }
         }
     })
 
@@ -158,5 +155,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         textArea.value = ''   
         commentFormContainer.classList.add('hidden');
         commentAddButton.classList.remove('hidden');
+        if(errorMessage){
+           const errMsg = document.getElementById('error-message');
+           errMsg.remove();
+           errorMessage = false;
+        }
     })
 })

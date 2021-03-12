@@ -20,18 +20,19 @@ block content
             div(class='story-box-container')
                 each story in recentStories 
                     - let date = convertDate(story.createdAt);
-                    //- - let userObj;
-                    //- each user in users 
-                    //-     if (user.id === story.userId) 
-                    //-         userObj = user
                     +storyBox(story.id, story.title, story.subtitle, story.User, story.pictureURL, date)
         div(class="newest-stories")
             H2(class="stories-label") Newest Stories
             div(class='story-box-container')
                 each story in recentStories 
                     - let date = convertDate(story.createdAt);
-                    
                     +storyBox(story.id, story.title, story.subtitle, story.User, story.pictureURL, date) 
+        div(class="all-stories")
+            H2(class="stories-label") All Stories
+            div(class='story-box-container')
+                each story in stories
+                    - let date = convertDate(story.createdAt);
+                    +storyBox(story.id, story.title, story.subtitle, story.User, story.pictureURL, date)
     
 
     

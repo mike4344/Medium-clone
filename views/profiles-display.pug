@@ -31,7 +31,7 @@ block content
         div(class='story-box-container')
             each userStory in userStories 
                 - let date = convertDate(userStory.createdAt);
-                +storyBox(userStory.title, userStory.subtitle, user, userStory.pictureURL, date) 
+                +storyBox(userStory.id, userStory.title, userStory.subtitle, user, userStory.pictureURL, date) 
 
 
 

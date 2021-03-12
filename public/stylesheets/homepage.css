@@ -18,10 +18,10 @@ body {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 40% 40%;
-    grid-template-rows: 1fr 40% 40%;
+    grid-template-rows: 20% 1fr;
     grid-template-areas:
-    "high-left high-middle high-right"
-    "low-left low-middle low-right";
+    "side high-middle high-right"
+    "side low low";
 }
 .high-like-stories {
     grid-area: high-middle;
@@ -31,6 +31,12 @@ body {
 }
 .newest-stories {
     grid-area: high-right;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.all-stories {
+    grid-area: low;
     display: flex;
     flex-direction: column;
     align-items: center;

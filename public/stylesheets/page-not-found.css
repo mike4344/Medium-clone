@@ -2,13 +2,21 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    grid-template-areas: 
+    grid-template-areas:
         '. title .'
         '. image .'
         '. image .'
 }
+@media screen and (max-width: 800px){
 
-.page-not-found__text {
+    .page-container {
+        display:flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+
+    .page-not-found__text {
     grid-area: title;
     text-align: center;
     font-size: xxx-large;

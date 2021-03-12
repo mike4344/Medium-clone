@@ -1,17 +1,18 @@
 
 .profile-main-body {
     position: relative;
-    background-color: black;
+    background-color: #f9f9f9;
     display: grid;
     grid-template-columns: 30% 70%;
     grid-template-rows: auto;
     grid-template-areas:
-    "card stories";
+    "card stories"
+    "footer footer";
 }
 
 .banner-picture-box {
    
-    height: 300px;
+    /* height: 20em; */
     width: 100%;
 }
 
@@ -20,6 +21,7 @@
     grid-area: card;
     position: sticky;
     top: 0;
+    width: 100%;
 
 }
 

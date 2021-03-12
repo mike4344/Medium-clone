@@ -18,12 +18,11 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', placeholder = 
 
 mixin storyBox(storyId, title, subtitle, user, storyPicture, date)
   div(class='main-story-box')
-    div(class='story-box-image') 
+    div(class='story-box-image')
       a(href=`/stories/${storyId}`)
         img(class='story-box-nestedImage' src=storyPicture)
-    div(class='story-box-author')
-      a(href=`/users/${user.id}`)
-        div(class='story-box-author-name')= user.screenName 
+    div(class='story-box-author') 
+      a(href=`/users/${user.id}` class='story-box-author-name')= user.screenName
         img(class='story-box-author-picture' src=`${user.pictureURL}`) 
     div(class='story-box-titles')
       a(href=`/stories/${storyId}`)
@@ -41,8 +40,18 @@ mixin fieldNoLabel(classList, fieldName, fieldValue, fieldType = 'text', placeho
       input(type=fieldType id=fieldName name=fieldName value=fieldValue placeholder=placeholder)
 
 
-//- if user does not provide picture, our site would provide default image.
-
-
-
-//- mixin comments()
+mixin feed(authorName, date, authorImage='http://1.bp.blogspot.com/-313PGMK9Aw0/Tf6Z2o0WNUI/AAAAAAAAAFk/N8el7uZP19A/s1600/unknown-person.gif', storyTitle, storyImage, storySnippet)
+  div(class='feed__container')
+    div(class='feed__author-box')
+      div(class='feed__author-image-container')
+        img(class='feed__author-image' src=authorImage)
+      div(class='feed__author-name-container')
+        p(class='feed__author-name')=authorName
+      div(class='feed__author-date-container')
+        p(class='feed__author-date')=date
+    div(class='feed__title-container')
+      p(class='feed__title')=storyTitle
+    div(class='feed__story-image-container')
+      img(class='feed__story-image' src=storyImage)
+    div(class='feed__story-snippet-container')
+      pre(class='feed__story-snippet')=storySnippet

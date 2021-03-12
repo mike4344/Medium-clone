@@ -43,10 +43,12 @@ block content
             div(class='comment-view-container')
                  ul(class='comment-view-list' id='comment__view-list')
             button(type='button' class=`${story.id}` id='add-comment-button') Add Comment...
-            div(class='comment-form-container')
+            div(class='comment-form-container hidden' id='comment-form-container')
                 textarea(id='comment__body' class=`${story.id} ${currentUserId} ${currentUser.screenName} ${currentUser.pictureURL}` cols="30", rows="10")
-                div(class='comment-form__image-container')
+                div(class='comment-form__image-container' id='comment-submit-container')
                     img(src='../icons8-edit-64.png' class='comment-form__submit-icon' id='comment__submit') 
+                div(class='comment-form__image-container' id='comment-cancel-container')
+                    img(src='../icons8-trash-26.png' class='comment-form__cancel-icon' id='comment__cancel') 
 
     link(rel='stylesheet' href='/stylesheets/stories-display.css')
     script(src='/javascripts/storylike.js')

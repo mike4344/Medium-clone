@@ -2,12 +2,23 @@
     display:grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    grid-template-areas: 
+    grid-template-areas:
     '. title .'
     '. info .'
     '. button .'
 }
 
+@media all and (max-width: 800px){
+.stories-delete__page-container {
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+    ' title '
+    ' info '
+    ' button '
+}
+}
 .story-title{
     grid-area: title;
     text-align: center;

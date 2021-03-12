@@ -4,6 +4,8 @@ append head
     link(rel="stylesheet" href="/stylesheets/storybox.css")
     link(rel="stylesheet" href="/stylesheets/userCard.css")
     link(rel="stylesheet" href="/stylesheets/profilePage.css")
+    link(link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;900&display=swap" rel="stylesheet")
+
 include utils.pug
 
 block content
@@ -11,7 +13,7 @@ block content
         if user.pictureURL
             div(class='banner-picture-box')
                 img(class='banner-picture' src=`${user.pictureURL}`)
-                h1(class='user-name')= user.screenName
+                h1(class='logo') A N I M E D I U M
         
     div(class='profile-main-body')
 
@@ -19,6 +21,7 @@ block content
             if user.pictureURL
                 div(class='user-picture-box')
                     img(class='user-picture' src=`${user.pictureURL}`)
+                    h1(class='user-name')= user.screenName
             if user.biography 
                 div(class='user-biography-box')
                     p(class='user-biography-text')= user.biography

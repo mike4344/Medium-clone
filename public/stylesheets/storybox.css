@@ -1,8 +1,8 @@
 .main-story-box {
     /* background-color: rgb(42, 42, 165); */
-    background: linear-gradient(to left, rgba(0, 26, 255, 0.774), yellow);
+    background: linear-gradient(to left, rgba(5, 9, 41, 0.774), rgb(241, 241, 189));
     color: black;
-    border: 1px solid black;
+    border: 5px solid black;
     width: 100%;
     height: 400px;
     position: relative;

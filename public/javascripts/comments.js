@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const commentSubmit = document.getElementById('comment__submit');
     const cancelCommentButton = document.getElementById('comment__cancel')
-    const commentViewButton = document.getElementById('view-comment-button');
-    const commentAddButton = document.getElementById('add-comment-button');
+    const commentViewButton = document.getElementById('view-comment-icon');
+    const commentAddButton = document.getElementById('add-comment-icon');
     const commentFormContainer = document.getElementById('comment-form-container');
     const commentUL = document.getElementById('comment__view-list');
     
@@ -63,9 +63,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 body.innerText = futureComment.body;
                 
                 //sets classes for styles for each element
-                // container.classlist.add('')
-                // author.classlist.add('')
-                // body.classlist.add('')
+                container.classList.add('comment-view__comment-container')
+                author.classList.add('comment-view__comment-author')
+                body.classList.add('comment-view__comment-body')
                 
                 //Append to page flow
                 container.appendChild(author);
@@ -120,13 +120,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                     author.innerText = comment.User.screenName;
                     body.innerText = comment.body;
 
-                    // container.classlist.add('')
-                    // author.classlist.add('')
-                    // body.classlist.add('')
+                    container.classList.add('comment-view__comment-container')
+                    author.classList.add('comment-view__comment-author')
+                    body.classList.add('comment-view__comment-body')
 
                     container.appendChild(author);
                     container.appendChild(body);
-
                     commentUL.appendChild(container);
 
                 })
@@ -147,6 +146,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     commentAddButton.addEventListener('click', () => {
         commentFormContainer.classList.remove('hidden');
         commentAddButton.classList.add('hidden');
+    })
+
+    commentAddButton.addEventListener('mouseover', () => {
+        commentAddButton.src = '/icons8-edit.gif'
+    })
+
+    commentAddButton.addEventListener('pointerleave', () => {
+        commentAddButton.src = '/icons8-edit-64.png'
     })
 
     //'trash' comment icon deactivates comment form

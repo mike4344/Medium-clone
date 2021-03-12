@@ -1,0 +1,16 @@
+.feed__container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas:
+    'author title title'
+    'author storyimg storyimg'
+    'author storyimg storyimg'
+    'body body body '
+    'body body body '
+}
+.feed__author-title {
+    grid-area: author;
+    display: flex;
+    flex-direction: column;
+}

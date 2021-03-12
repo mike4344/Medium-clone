@@ -1,11 +1,36 @@
 extends layout
 
-append head
-  //- add page specific styles by appending to the head
-  link(rel="stylesheet" href="/stylesheets/index.css")
-  //- add page specific js
-  script(src="/javascripts/index.js" type="module" defer)
+append head 
+    link(rel="stylesheet" href="/stylesheets/profileBanner.css")
+    link(rel="stylesheet" href="/stylesheets/storybox.css")
+    link(rel="stylesheet" href="/stylesheets/userCard.css")
+    link(rel="stylesheet" href="/stylesheets/profilePage.css")
+include utils.pug
 
 block content
-  h1= title
-  p Welcome to your Project Skeleton
+ div 
+        if loggedInUser 
+            h1 Welcome, #{loggedInUser.screenName}
+
+        h3 DEV NAV LINKS
+        ul 
+            li: a(href="/signup") Signup
+            li: a(href="/login") Login
+            li: a(href="/stories/create") Create New Story
+
+
+
+
+
+ div(class='story-box-container')
+            each userStory in userStories 
+                - let date = convertDate(userStory.createdAt);
+                +storyBox(userStory.id, userStory.title, userStory.subtitle, user, userStory.pictureURL, date) 
+
+
+  h3 All Users
+                each user in users
+                    li: a(href=`/users/${user.id}`)=user.screenName
+            h3 All Stories
+                each story in stories 
+                    li: a(href=`/stories/${story.id}`)=story.title 

@@ -55,6 +55,21 @@ router.post('/', csrfProtection, loginValidators, asyncHandler(async (req, res, 
     })
 }));
 
+router.post('/random-demo', asyncHandler( async (req, res) => {
+    const {email, password} = req.body;
+    const user = await db.User.findOne({
+        where: {
+            email
+        }
+    });
+    if (user !== null) {
+        const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
+        if (passwordMatch){
+            loginUser(req, res, user);
+            res.redirect('/');
+        }
+    }
+}))
 
 
 module.exports = router;

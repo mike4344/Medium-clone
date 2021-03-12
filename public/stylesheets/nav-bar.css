@@ -6,35 +6,55 @@
     display:grid;
     grid-template-rows: 55px;
     grid-template-columns: repeat(20, 1fr);
-    grid-template-areas: 
+    grid-template-areas:
         'home txt . . . . . . . . . . . . . . . userProfile writeStory logout'
 }
 
 .nav-bar__home-link {
    grid-area:home;
+
 }
 .nav-bar__text {
     grid-area:txt;
+
 }
 
 .nav-bar__login {
     grid-area:userProfile;
+
 }
 
 .nav-bar__new-story {
     grid-area:writeStory;
+
 }
 
 .nav-bar__logout {
     grid-area:logout;
+
 }
 
 .nav-bar__text {
+
     font-size: 24px;
     font-weight: bold;
 }
 
 .nav-bar__image {
+
     height: 34px;
     width: 34px;
+}
+a.nav-link{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+a.nav-link:hover{
+    background-color: blue;
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
+    box-shadow: 1px 1px 1px white;
 }

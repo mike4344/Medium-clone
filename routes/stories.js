@@ -1,5 +1,5 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 
 const { check, validationResult } = require("express-validator");
 const { csrfProtection, asyncHandler, userValidators } = require("./utils");
@@ -100,6 +100,7 @@ router.get('/:storyId(\\d+)', asyncHandler(async (req, res, next) => {
 
         let currentUserId = null;
         let currentUserStoryLike = null;
+        let currentUser = null;
 
         let likeCount = await db.StoryLike.findAndCountAll({
             where: {
@@ -109,6 +110,7 @@ router.get('/:storyId(\\d+)', asyncHandler(async (req, res, next) => {
         console.log(likeCount.count)
         if(req.session.auth) {
             currentUserId = req.session.auth.userId;
+            currentUser = await db.User.findByPk(currentUserId)
 
             const storyLike = await db.StoryLike.findOne({
                 where: {
@@ -126,6 +128,7 @@ router.get('/:storyId(\\d+)', asyncHandler(async (req, res, next) => {
             story,
             currentUserStoryLike,
             currentUserId,
+            currentUser
             likeCount: likeCount.count
         })
     } else {

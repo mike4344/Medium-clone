@@ -7,20 +7,21 @@
     grid-template-rows: 55px;
     grid-template-columns: repeat(20, 1fr);
     grid-template-areas:
-        'home txt . . . . . . . . . . . . . . . userProfile writeStory logout'
+        'home txt . . . . . . . . . . . . . . . userProfile writeStory logout';
+    border-bottom: 1px solid #a5dabb;
+    z-index: 10;
 }
 @media (max-width: 768px){
     .nav-bar {
         position:sticky;
         top: 0;
-        background-color:rgb(17, 17, 146);
         align-items: center;
         display:flex;
         justify-content:space-between;
     }
 }
 .nav-bar__home-link {
-   grid-area:home;
+    grid-area:home;
 
 }
 .nav-bar__text {
@@ -63,8 +64,8 @@ a.nav-link{
     justify-content: center;
 }
 a.nav-link:hover{
-    background-color: blue;
-    border-bottom: 2px solid white;
-    border-left: 1px solid white;
+    border-bottom: 2px solid #174a77;
+    border-left: 2px solid #174a77;
     box-sizing: border-box;
+    background-color: #a5dabb;
 }

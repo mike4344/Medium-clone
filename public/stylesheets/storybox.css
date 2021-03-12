@@ -3,7 +3,7 @@
     /* background: linear-gradient(to left, rgba(0, 26, 255, 0.774), yellow); */
     font-family: 'Cinzel', serif;
     font-weight: 100;
-    color: black;
+    /* color: black; */
     border: 1px solid black;
     width: 75%;
     height: 400px;
@@ -63,6 +63,8 @@
     /* align-self: flex-end; */
     font-style: italic;
     text-decoration: none;
+    color: #062743;
+    
 }
 
 .story-box-author-picture {
@@ -71,8 +73,8 @@
     width: 20%;
     height: 20%;
     border-radius: 50%;
-
-
+    
+    
 }
 
 .story-box-titles {
@@ -92,7 +94,8 @@
     text-decoration: underline;
     text-align: left;
     margin-left: 3%;
-
+    color: #062743;
+    
 }
 
 .story-box-titles-subtitle {
@@ -100,7 +103,8 @@
     font-style: italic;
     text-align: center;
     font-size: 250%;
-
+    color: #113a5d;
+    
 }
 
 .story-box-info {

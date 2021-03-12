@@ -1,9 +1,23 @@
 const userArray = [
-    'eren@gmail.com',
+    'LightYagami@gmail.com',
+    'meliodas@gmail.com',
+    'ban@gmail.com',
+    'escanor@gmail.com',
+    'Goku@gmail.com',
+    'vegeta@gmail.com',
     'naruto@gmail.com',
-    'goku@gmail.com',
+    'sasuke@gmail.com',
+    'itachi@gmail.com',
     'kakashi@gmail.com',
+    'hinata@gmail.com',
     'obito@gmail.com',
+    'madara@gmail.com',
+    'Hashirama@gmail.com',
+    'tobirama@gmail.com',
+    'hiruzen@gmail.com',
+    'Tsunade@gmail.com',
+    'deku@gmail.com',
+    'allMight@gmail.com',
 ]
 
 function returnRandomEmail(arr){

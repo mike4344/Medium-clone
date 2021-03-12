@@ -19,13 +19,21 @@ block content
     div(class="homepage-stories")
         div(class='high-like-stories')
             H2(class='stories-label') Most Liked Stories
-        div(class="h2-container")
+            div(class='story-box-container')
+                each story in recentStories 
+                    - let date = convertDate(story.createdAt);
+                    //- - let userObj;
+                    //- each user in users 
+                    //-     if (user.id === story.userId) 
+                    //-         userObj = user
+                    +storyBox(story.id, story.title, story.subtitle, story.User, story.pictureURL, date)
+        div(class="newest-stories")
             H2(class="stories-label") Newest Stories
-        div(class='story-box-container')
-            each story in recentStories 
-                - let date = convertDate(story.createdAt);
-                - let user = grabUser(story.userId);
-                +storyBox(story.id, story.title, story.subtitle, story.userId, story.pictureURL, date) 
+            div(class='story-box-container')
+                each story in recentStories 
+                    - let date = convertDate(story.createdAt);
+                    
+                    +storyBox(story.id, story.title, story.subtitle, story.User, story.pictureURL, date) 
     
 
     

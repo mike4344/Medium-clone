@@ -21,14 +21,20 @@ router.get('/homepage', asyncHandler( async(req, res, next) => {
   //want to find 5 most recently written stories and display them.
   const recentStories = await db.Story.findAll({
     limit: 5,
-    order : [
-      ['createdAt', 'asc']
-    ]
+    order: [["createdAt", "asc"]],
+    include: db.User,
   });
   const randomStories = await db.Story.findAll({ 
     limit: 5,
     //randomize
   })
+  // const likedStories = await db.Story.findAll({
+  //   include: [{
+  //     model: Likes
+  //   }],
+  //   limit: 5,
+
+  // })
 
   let loggedInUser = null;
   if (req.session.auth) {

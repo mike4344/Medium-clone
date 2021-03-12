@@ -23,7 +23,8 @@
 }
 
 .comment-view-list {
-
+    height:100%;
+    width:100%;
 }
 
 .comment-view-container {
@@ -32,6 +33,8 @@
 }
 
 .comment-view__comment-container{
+    width:100%;
+    height:100%;
     list-style-type:none;
     border: 2px solid black;
     margin: 8px;

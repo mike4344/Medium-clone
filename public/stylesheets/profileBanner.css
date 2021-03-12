@@ -10,18 +10,31 @@
     display: flex;
     justify-content: center;
     overflow: hidden;
+    background: linear-gradient(to right, purple, yellow, red, blue);
     background-color: black;
-
 }
 
 .banner-picture {
     height: 100%;
+    display: none;
 }
 
-.user-name {
-    position: absolute;
-    color: white;
-    bottom: 40%;
-    left: 10%;
-    font-size: 50px;
+.logo {
+    display: flex;
+    position: relative;
+    /* color: white; */
+    /* bottom: 10%;
+    left: 10%; */
+    font-size: 9vmax;
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    /* font-variant: small-caps; */
+    text-transform: capitalize;
+    justify-self: center;
+    align-self: center;
+    background-image: url('https://www.stevenmepham.co.uk/wp-content/uploads/2019/06/Anime-Banner.jpg');
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }

@@ -4,3 +4,17 @@
     bottom: 0;
     min-width: 100%
 }
+.footer-container {
+    display: flex;
+    justify-content: space-evenly;
+    border: 5px solid;
+    box-sizing: border-box;
+    margin-top: 20px;
+    position: fixed;
+    bottom: 0;
+    min-width: 100%
+}
+.personal-info-container {
+    display: inline-block;
+    
+}

@@ -13,7 +13,9 @@ const grabUser = async (id) => {
 
 //working toward the official homepage.
 router.get('/homepage', asyncHandler( async(req, res, next) => {
-  const stories = await db.Story.findAll();
+  const stories = await db.Story.findAll({
+    include: db.User,
+  });
   const users = await db.User.findAll();
   // const topWriters = await db.User.findAll()
   //this is an idea to show off the writers who have written the most stories or have the most likes.

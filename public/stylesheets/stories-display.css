@@ -45,10 +45,11 @@
 
         display: flex;
         flex-direction: column;
-        
+
 }
 
 .story-titlebox__title {
+    padding-top: 15px;
     overflow: hidden;
     word-wrap: break-word;
     grid-area: title;
@@ -56,6 +57,7 @@
     font-size: xxx-large;
     font-weight: bold;
     text-shadow: 2px 2px 2px rgba(161, 170, 169, .9);
+    padding-bottom: 10px;
 }
 
 .story-titlebox__subtitle{
@@ -63,17 +65,31 @@
     text-align: center;
     color:grey;
     font-style: italic;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .story-titlebox__author-box {
     grid-area: story-titlebox__author-box;
     /* background-color:antiquewhite; */
     display:grid;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
     grid-template-columns: repeat(10, 1fr);
     grid-template-areas:
-        'authorImage authorImage authorName authorName authorName authorName . . editStory deleteStory'
-        'authorImage authorImage dateCreated dateCreated dateCreated dateCreated . . likeCount likeButton';
+        'author author author author . . buttons buttons buttons buttons'
+        /* 'author author author author . . . . likeCount likeButton'; */
+
+}
+.story-titlebox__author-container{
+    grid-area: author;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    grid-template-areas:
+    'authorImage authorImage authorName authorName'
+    'authorImage authorImage dateCreated dateCreated'
 }
 
 .story-titlebox__author-box__name {
@@ -104,8 +120,8 @@
 
 .story-titlebox__author-box__image{
     box-sizing: border-box;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     border-radius: 2px 2px 2px rgba(160, 160, 160, 0.45);
     border-radius: 50%;
 }
@@ -127,6 +143,14 @@
     grid-area: authorButtons;
 }
 
+.story-titlebox__buttons-container {
+    grid-area: buttons;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+    'editButton deleteButton likeCount likeButton';
+}
 
 .story-image__container {
     grid-area: storyImage;
@@ -173,6 +197,9 @@
     text-align: center;
     color:grey;
     font-style: italic;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 
 }
 
@@ -181,10 +208,16 @@
     text-shadow: 2px 2px 2px rgba(105, 105, 105, .4);
 }
 
+.comment-view__icons-container{
+    display: flex;
+    justify-content: space-between;
+    width:40%;
+}
+
 .story-titlebox__author-box__author-buttons_edit-button {
     height: 100%;
     width: 100%;
-    grid-area:editStory;
+    grid-area:editButton;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -204,7 +237,7 @@
 .story-titlebox__author-box__author-buttons_delete-button {
     height: 100%;
     width: 100%;
-    grid-area:deleteStory;
+    grid-area:deleteButton;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -222,4 +255,13 @@
 
 .hidden {
     display: none;
+}
+.icon:hover{
+    box-shadow: 4px 4px 4px rgba(59, 59, 59, 0.65);
+    background-color: rgba(230, 230, 230, 1);
+    transform: scale(1.33);
+    border-radius:50%;
+    transition-property: transform;
+    transition-duration: .25s;
+    transition-delay: 0s;
 }

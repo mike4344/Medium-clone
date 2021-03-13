@@ -5,16 +5,17 @@ html
         title=`Animedium-${title}`
         link(rel='stylesheet' href='/stylesheets/reset.css')
         link(rel='stylesheet' href='/stylesheets/nav-bar.css')
-  body(style='background-color: #F0F0F0')
+        link(link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;900&display=swap" rel="stylesheet")
+  body(style="background-color: #F0F0F0; font-family: 'Cinzel', serif;")
     nav(class='nav-link nav-bar')
       a(href="/" class='nav-link nav-bar__home-link')
-        img(src="/icons8-home-26.png" class='nav-link nav-bar__image')
+        img(title='Home' src="/icons8-home-26.png" class='nav-link nav-bar__image')
       h2(class='nav-link nav-bar__text') Animedium
       a(href="/login" class='nav-link nav-bar__login')
-        img(src="/icons8-signin-24.png" class='nav-link nav-bar__image')
+        img(title='Log In' src="/icons8-signin-24.png" class='nav-link nav-bar__image')
       a(href="/stories/create" class='nav-link nav-bar__new-story')
-        img(src='/icons8-edit-64.png' class='nav-link nav-bar__image')
+        img(title='Write Story' src='/icons8-edit-64.png' class='nav-link nav-bar__image')
       a(href="/logout" class='nav-link nav-bar__logout')
-        img(src='/icons8-exit-64.png' class='nav-link nav-bar__image')
+        img(title='Log Out' src='/icons8-exit-64.png' class='nav-link nav-bar__image')
 
     block content

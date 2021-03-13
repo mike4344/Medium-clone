@@ -12,11 +12,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             likeImage.src = '../icons8-star-64.png'
             await likeImage.classList.remove('active');
             likeCount.innerHTML--
+            likeImage.title ='Like'
         }else{
             likeImage.src = '../icons8-star-64-yellow.png'
             await likeImage.classList.add('active');
             likeCount.innerHTML++
-
+            likeImage.title = 'Unlike'
         }
 
         await fetch(`/stories/${storyId}/likes`, { method: 'POST'})

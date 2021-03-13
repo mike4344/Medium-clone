@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const commentAddButton = document.getElementById('add-comment-icon');
     const commentFormContainer = document.getElementById('comment-form-container');
     const commentUL = document.getElementById('comment__view-list');
-    
+
     let commentsVisible = false;
     let emptyMessage = false;
     let errorMessage = false;
@@ -19,19 +19,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         const body = textArea.value;
         //'hidden' inputs -- we used class list to store variables from our pug file, destructured here
         const storyId = textArea.classList[0];
-        const userId = textArea.classList[1];        
+        const userId = textArea.classList[1];
 
         //if comment body exists, comment is posted.  If no comment body exists, an error message is rendered.
         if(body){
             //Future comment stores variables from our text area
             const futureComment = {
-                body: body, 
+                body: body,
                 userId: userId,
                 storyId: storyId
             }
 
             //calling our post to our database
-            await fetch(`/stories/${storyId}/comments`, { 
+            await fetch(`/stories/${storyId}/comments`, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 },
                 body: JSON.stringify(futureComment),
             })
-            
+
             //Checks to see if user has enabled "view comments"
             if(commentsVisible){
                 //Checks for and removes error messages before adding new comments
@@ -52,32 +52,32 @@ document.addEventListener('DOMContentLoaded', async () => {
                 //more 'hidden' inputs from our text area -- aka class list
                 const screenName = textArea.classList[2]
                 const pictureURL = textArea.classList[3]
-                
+
                 //creates new comment display elements
                 const container = document.createElement('li');
                 const author = document.createElement('h3');
                 const body = document.createElement('pre');
-                
+
                 //sets texts for each element
                 author.innerText = screenName;
                 body.innerText = futureComment.body;
-                
+
                 //sets classes for styles for each element
                 container.classList.add('comment-view__comment-container')
                 author.classList.add('comment-view__comment-author')
                 body.classList.add('comment-view__comment-body')
-                
+
                 //Append to page flow
                 container.appendChild(author);
                 container.appendChild(body);
-                
+
                 commentUL.appendChild(container);
-                
+
             }
             //Resets text area and disables the comment form if comment post successful
             textArea.value = '';
             commentFormContainer.classList.add('hidden');
-            commentAddButton.classList.remove('hidden');         
+            // commentAddButton.classList.remove('hidden');
         }else{
             //Displays an error message when body is empty//
             //if statement prevents message from being rendered twice
@@ -92,9 +92,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     })
 
 
-    //Loads comments to list element 
+    //Loads comments to list element
     commentViewButton.addEventListener('click', async () => {
-        //If statment works as toggle -- if comments are visibile at time of click, we populate the view.  
+        //If statment works as toggle -- if comments are visibile at time of click, we populate the view.
         //if comments are visibile at time of click, we clear the view(below)
         if(!commentsVisible){
             //using classlist to transfer variables through pug
@@ -144,14 +144,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     //'add comment' button activates comment form
     commentAddButton.addEventListener('click', () => {
-        commentFormContainer.classList.remove('hidden');
-        commentAddButton.classList.add('hidden');
+        commentFormContainer.classList[1] === 'hidden' ? commentFormContainer.classList.remove('hidden') : commentFormContainer.classList.add('hidden');
+        // commentAddButton.classList.add('hidden');
     })
-
+    //Mouse over control
     commentAddButton.addEventListener('mouseover', () => {
         commentAddButton.src = '/icons8-edit.gif'
     })
-
+    //mouse leave conrtol
     commentAddButton.addEventListener('pointerleave', () => {
         commentAddButton.src = '/icons8-edit-64.png'
     })
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     //'trash' comment icon deactivates comment form
     cancelCommentButton.addEventListener('click', () => {
         const textArea = document.getElementById('comment__body');
-        textArea.value = ''   
+        textArea.value = ''
         commentFormContainer.classList.add('hidden');
         commentAddButton.classList.remove('hidden');
         if(errorMessage){

@@ -26,17 +26,7 @@ const storyValidators = [
         .exists({ checkFalsy:true })
         .withMessage('Please provide a title')
         .isLength({ max:100 })
-        .withMessage('Title should be less than 100 characters').custom((value) => {
-            return db.Story.findOne({
-                where: {
-                    title: value
-                }
-            }).then((story) => {
-                if (story) {
-                    return Promise.reject('The provided title is already in use.')
-                }
-            })
-        }),
+        .withMessage('Title should be less than 100 characters'),
     check('subtitle')
         .isLength({ max:255 })
         .withMessage('Subtitle should be less than 255 characters'),
@@ -216,9 +206,25 @@ router.get('/:storyId(\\d+)/delete', requireAuth, csrfProtection, asyncHandler(a
 router.post('/:storyId(\\d+)/delete', requireAuth, csrfProtection, asyncHandler(async (req, res, next)=>{
     const storyId = parseInt(req.params.storyId, 10)
     const story = await db.Story.findByPk(storyId)
-    console.log('we are here')
-
     if(story.userId === req.session.auth.userId){
+
+    const comments = await db.Comment.findAll({
+        where: {
+            'storyId': storyId
+        }
+    })
+    const likes = await db.StoryLike.findAll({
+        where: {
+            'storyId': storyId
+        }
+    })
+        comments.forEach(async comment => {
+            await comment.destroy();
+        })
+        likes.forEach(async like => {
+            await like.destroy();
+        })
+
         await story.destroy()
         res.redirect('/')
     } else {

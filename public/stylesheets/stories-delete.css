@@ -48,6 +48,7 @@
     justify-content:space-between;
 }
 .stories-delete__button-delete{
+    cursor: pointer;
     border: none;
     border-radius: 50%;
 }

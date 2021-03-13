@@ -7,8 +7,8 @@ mixin validationErrorSummary(errors)
           li= error
 
 
-mixin field(labelText, fieldName, fieldValue, fieldType = 'text', placeholder = null)
-  div
+mixin field(labelText, fieldName, fieldValue, fieldType = 'text', placeholder = null, classList)
+  div(class=classList)
     label(for=fieldName)= labelText
     if fieldType === 'textarea'
       textarea(id=fieldName name=fieldName rows='5' placeholder=placeholder spellcheck=true)= fieldValue

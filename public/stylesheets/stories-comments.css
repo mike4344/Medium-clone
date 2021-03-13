@@ -21,7 +21,9 @@
 .comment-view-container{
 
 }
+.view-comment__icon{
 
+}
 .comment-view-list {
     height:100%;
     width:100%;
@@ -30,6 +32,7 @@
 .comment-view-container {
     display:flex;
     flex-direction: column;
+    width: 90%;
 }
 
 .comment-view__comment-container{
@@ -69,10 +72,12 @@
 }
 
 .comment-form__cancel-icon {
-    
+
 }
 
-
+.comment-form-container{
+    width:100%;
+}
 #comment__body {
     width:100%;
     border: 1px solid rgba(170, 170, 170, 0.4);
@@ -88,5 +93,3 @@
 #comment__body:hover {
     background: #e6e5e5;
 }
-
-

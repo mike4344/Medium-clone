@@ -12,7 +12,8 @@ block content
         div(class='stories-delete__button-container')
             form(action=`/stories/${story.id}/delete` method='post')
                 input(type='hidden' name='_csrf' value=csrfToken)
-                button(type='submit' class='stories-delete__button-delete') Delete Story
-            a(href=`/stories/${story.id}`) 
-                button(type='button' class='stories-delete__button-cancel') Cancel
+                button(type='submit' class='stories-delete__button-delete')
+                     img(title='Delete' src='/icons8-delete-26.png' class='submit__icon icon' alt='Submit')
+            a(href=`/stories/${story.id}`)
+                img(title='Cancel' src='/icons8-cancel-delete-24.png' class='delete__icon icon')
         link(rel='stylesheet' href='/stylesheets/stories-delete.css')

@@ -11,8 +11,9 @@ block content
         +fieldNoLabel('stories-create__image', 'pictureURL', story.pictureURL, 'url', "Image Link...")
         +fieldNoLabel('stories-create__body', 'body', story.body, 'textarea', 'Write your story here...')
         div(class='stories-create__button-container')
-            button(class='stories-create__button-post' type="submit") Edit your story
+            button(class='stories-create__button-post' type="submit")
+                img(title='Submit' src='/icons8-checked-26.png' class='submit__icon icon' alt='Submit')
             a(href=`/stories/${story.id}`)
-                button(class='stories-create__button-cancel' type="button") Cancel
+                img(title='Cancel' src='/icons8-cancel-26.png' class='delete__icon icon')
         +validationErrorSummary(errors)
     link(rel='stylesheet' href='/stylesheets/stories-create.css')

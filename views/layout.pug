@@ -5,6 +5,7 @@ html
         title=`Animedium-${title}`
         link(rel='stylesheet' href='/stylesheets/reset.css')
         link(rel='stylesheet' href='/stylesheets/nav-bar.css')
+        link(rel='stylesheet' href='/stylesheets/footer.css')
   body(style='background-color: #F0F0F0')
     nav(class='nav-link nav-bar')
       a(href="/" class='nav-link nav-bar__home-link')
@@ -18,3 +19,17 @@ html
         img(src='/icons8-exit-64.png' class='nav-link nav-bar__image')
 
     block content
+    block foot 
+      .footer 
+        div(class='personal-info-container')
+          div(class='name') Robert Burroughs
+          div(class='email') ClifDevelops@gmail.com
+          div(class='linkedIn')
+          div(class='github')
+
+//- www.linkedin.com/in/michaelmihalchik
+//- mikemihalchik@gmail.com
+//- https://github.com/mike4344
+//- nicgauer@gmail.com
+//- https://github.com/fportin
+//- fportin350@gmail.com

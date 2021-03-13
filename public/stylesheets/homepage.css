@@ -16,6 +16,8 @@ body {
 
 .homepage-stories {
     width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
     display: grid;
     grid-template-columns: 1fr 40% 40%;
     grid-template-rows: 20% 1fr;

@@ -46,7 +46,11 @@ block content
             div(class='comment-view__icons-container')
                 img(title='Toggle Comments' src='/icons8-comments-24.png' class=`${story.id} view-comment__icon form__icon` id='view-comment-icon')
 
-                img(title='Write Comment' src='/icons8-edit-64.png' class=`${story.id} add-comment__icon form__icon` id='add-comment-icon')
+                if currentUser
+                    img(title='Write Comment' src='/icons8-edit-64.png' class=`${story.id} add-comment__icon form__icon` id='add-comment-icon')
+                else 
+                    a(href='/login')
+                        img(title='Write Comment' src='/icons8-edit-64.png' class=`$add-comment__icon form__icon`)
 
             div(class='comment-form-container hidden' id='comment-form-container')
                 if currentUser

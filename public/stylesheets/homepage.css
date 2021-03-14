@@ -12,13 +12,13 @@ body {
 
 .stories-label {
    font-size: 35px;
+   text-shadow: 0 5px 5px #113A5D;
 }
 
 .homepage-display {
     background-color: #f9f9f9;
     width: 100%;
     box-sizing: border-box;
-    margin-bottom: 95px;
     display: grid;
     grid-template-columns: 1fr 40% 40%;
     grid-template-rows: auto 1fr;
@@ -28,7 +28,6 @@ body {
 }
 .homepage-users-container {
     grid-area: high-side;
-    /* border: 5px solid; */
     width: 75%;
     height: 400px;
     display: flex;
@@ -44,7 +43,6 @@ body {
 }
 .users-label-container {
     box-sizing: border-box;
-    /* margin: 10px; */
     justify-content: center; 
     background: linear-gradient(to bottom, #113A5D,#f9f9f9);
     border-radius: 1px;
@@ -72,7 +70,6 @@ body {
     box-sizing: border-box;
     margin: 5px;
     padding: 15px;
-    /* border: solid 1px; */
     background-color: #f9f9f9;
 }
 .newest-stories {
@@ -83,7 +80,6 @@ body {
     box-sizing: border-box;
     margin: 5px;
     padding: 15px;
-    /* border: solid 1px; */
     background-color: #f9f9f9;
 }
 .all-stories {
@@ -111,11 +107,10 @@ body {
     font-weight: 100;
     background: linear-gradient(to right, #113A5D,#f9f9f9);
     color: black;
-    /* border: 4px solid rgba(#113A5D, .4); */
     box-shadow: 0 10px 10px #113A5D;
     border-radius: 15px;
     min-width: 100%;
-    min-height: 200px;
+    height: 200px;
     position: relative;
     margin-top: 3%;
     margin-right: 3%;
@@ -134,7 +129,6 @@ body {
 
 }
 .main-story-box:hover {
-    /* border:2px solid #062743; */
     box-shadow: 0 10px 10px 5px #062743;
 }
 .story-box-image {
@@ -145,7 +139,6 @@ body {
     overflow: hidden;
     border-radius: 10px;
     box-sizing: border-box;
-    /* margin: 5px; */
 }
 
 .story-box-nestedImage {
@@ -153,7 +146,7 @@ body {
     align-items: center;
     width: 100%;
     min-height: 150px;
-    max-height: 200px;
+    max-height: 175px;
     border-radius:10px;
     
 }
@@ -206,12 +199,12 @@ body {
 
 .story-box-titles-title {
     box-sizing: border-box;
-    /* margin-top: 40px; */
     font-weight: 525;
     font-size: 25px;
     text-decoration: underline;
     text-align: center;
     color: #062743;
+    word-wrap: break-word;
 
 }
 

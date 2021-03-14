@@ -49,6 +49,8 @@ router.get('/comments/:commentId(\\d+)/current-user', asyncHandler(async(req, re
             }
         })
        await res.json(like)
+    }else{
+        await res.json(null);
     }
 }))
 

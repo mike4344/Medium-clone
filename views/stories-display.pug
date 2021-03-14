@@ -50,7 +50,7 @@ block content
                     img(title='Write Comment' src='/icons8-edit-64.png' class=`${story.id} add-comment__icon form__icon` id='add-comment-icon')
                 else 
                     a(href='/login')
-                        img(title='Write Comment' src='/icons8-edit-64.png' class=`$add-comment__icon form__icon`)
+                        img(title='Write Comment' src='/icons8-edit-64.png' class=`${story.id} $add-comment__icon form__icon` id='add-comment-icon')
 
             div(class='comment-form-container hidden' id='comment-form-container')
                 if currentUser

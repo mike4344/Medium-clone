@@ -5,11 +5,8 @@ const { logoutUser } = require('../auth')
 const db = require("../db/models");
 const { csrfProtection, asyncHandler } = require("./utils");
 const convertDate = (timestamp) => timestamp.toString().slice(0, 16);
-
-const grabUser = async (id) => {
-  const user = await db.User.findByPk(id);
-  return user;
-}
+const { Sequelize } = require("../db/models");
+const Op = Sequelize.Op;
 
 //working toward the official homepage.
 router.get('/homepage', asyncHandler( async(req, res, next) => {
@@ -17,6 +14,7 @@ router.get('/homepage', asyncHandler( async(req, res, next) => {
     include: db.User,
   });
   const users = await db.User.findAll();
+  const sortedUsers = users.sort();
   // const topWriters = await db.User.findAll()
   //this is an idea to show off the writers who have written the most stories or have the most likes.
 
@@ -26,10 +24,10 @@ router.get('/homepage', asyncHandler( async(req, res, next) => {
     order: [["createdAt", "asc"]],
     include: db.User,
   });
-  const randomStories = await db.Story.findAll({ 
-    limit: 5,
-    //randomize
-  })
+  // const randomStories = await db.Story.findAll({ 
+  //   limit: 5,
+  //   order: Sequelize.random()
+  // })
   // const likedStories = await db.Story.findAll({
   //   include: [{
   //     model: Likes
@@ -43,7 +41,7 @@ router.get('/homepage', asyncHandler( async(req, res, next) => {
     loggedInUser = await db.User.findByPk(req.session.auth.userId);
   }
 
-  res.render('homepage', {title: "ANIMEDIUM!", stories, users, recentStories, loggedInUser, convertDate, grabUser })
+  res.render('homepage', {title: "ANIMEDIUM!", stories, users, sortedUsers, recentStories, loggedInUser, convertDate })
 }))
 
 

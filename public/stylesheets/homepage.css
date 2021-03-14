@@ -14,7 +14,7 @@ body {
    font-size: 35px;
 }
 
-.homepage-stories {
+.homepage-display {
     background-color: #f9f9f9;
     width: 100%;
     box-sizing: border-box;
@@ -24,7 +24,44 @@ body {
     grid-template-rows: auto 1fr;
     grid-template-areas:
     "high-side high-middle high-right"
-    "low low low";
+    "low-side low low";
+}
+.homepage-users-container {
+    grid-area: high-side;
+    /* border: 5px solid; */
+    width: 75%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    box-sizing: border-box;
+    margin-top: 100px;
+    border-radius: 10px;
+    overflow-y: scroll;
+    position: sticky;
+    top:200px;
+    box-shadow: 10px 10px 10px 4px #113A5D;
+}
+.users-label-container {
+    box-sizing: border-box;
+    /* margin: 10px; */
+    justify-content: center; 
+    background: linear-gradient(to bottom, #113A5D,#f9f9f9);
+    border-radius: 1px;
+
+
+}
+.users-title {
+    font-size: 20px;
+    font-weight:900px;
+    
+    box-sizing: border-box;
+    margin: 10px;
+   
+}
+.users-display {
+    box-sizing: border-box;
+    padding-left: 15px;
 }
 .high-like-stories {
     grid-area: high-middle;

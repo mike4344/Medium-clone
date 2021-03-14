@@ -28,25 +28,39 @@ body {
     margin-left: 10px;
     font-size: 70px;
     font-weight: 900;
-    background-image: url('https://www.stevenmepham.co.uk/wp-content/uploads/2019/06/Anime-Banner.jpg');
+    background-image: url('../banner-pic.jpeg');
     background-size: 250%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
     color: transparent;
     -webkit-text-stroke: 1px black;
-    animation: beatingLogo ease-in 2s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    animation: fadeInEffect ease-in 2s;
+    animation-iteration-count: 1;
+    animation-direction: forwards;
 }
 
 .login-form__email {
     font-size: 25px;
+    display: flex;
+    align-items: center;
+}
+
+#email {
+    height: 25px;
+    margin-left: 10px;
 }
 
 .login-form__password {
     margin-left: 60px;
     font-size: 25px;
+    display: flex;
+    align-items: center;
+}
+
+#password {
+    height: 25px;
+    margin-left: 10px;
 }
 
 .login-form__submit-container {
@@ -131,7 +145,20 @@ body {
 
 .login-form__signup {
     font-size: 25px;
+    font-weight: 900;
     color: #062743;
+    transition-property: color;
+}
+
+.login-form__signup:hover {
+    color: transparent;
+    text-decoration: none;
+}
+
+.login-form__signup:hover:after {
+    color: orange;
+    margin-right: 300px;
+    content: attr(data-hover)
 }
 
 .login-form__or {
@@ -153,21 +180,21 @@ body {
     width: 800px;
     height: 200px;
     min-width: 50%;
-    background-image: url('https://www.stevenmepham.co.uk/wp-content/uploads/2019/06/Anime-Banner.jpg');
+    background-image: url('../banner-pic.jpeg');
     background-size: cover;
     text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     transition-property: font-size;
-    transition-duration: 2s;
+    transition-duration: 0.4s;
 }
 
 
 #random-demo-user:hover {
     font-size: 0;
     transition: opacity 2s;
-    animation: fadeInBanner ease-in 1.5s;
+    animation: fadeInEffect ease-in 1.5s;
     animation-iteration-count: 1;
     animation-direction: forwards;
-    background-image: url('https://www.memedroid.com/images/tag-descriptions/1/banner_anime.jpg');
+    background-image: url('../banner-pic-2.jpeg');
     background-size: cover;
     
 }
@@ -177,16 +204,7 @@ body {
     content: attr(data-hover)
 }
 
-@keyframes beatingLogo {
-    0% {
-        opacity: 0.1;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInBanner {
+@keyframes fadeInEffect {
     0% {
         opacity: 0;
     }

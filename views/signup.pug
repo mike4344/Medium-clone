@@ -3,16 +3,26 @@ extends layout.pug
 include utils.pug
 
 block content
-    +validationErrorSummary(errors)
-    form(action='/signup' method='post')
-        input(type='hidden' name='_csrf' value=csrfToken)
-        +field('Email Address', 'email', user.email, 'email', 'jojo@adventures.com')
-        +field('Screen Name', 'screenName', user.screenName)
-        +field('Password', 'password', user.password, 'password')
-        +field('Confirm Password', 'confirmPassword', user.confirmPassword, 'password')
-        div
-            button(type="submit") Signup
-            a(href='/') Cancel
-    div
-        p
-            a(href='/login') Already have an account?
+    div(class='signup-page')
+        div(class='signup-form__container')
+            div(class='signup-form__container-picture')
+                div(class='signup-form__word-create') Create
+                div(class='signup-form__word-your') your
+                div(class='signup-form__word-account') Account
+            div(class='signup-form__right-container')
+                div(class='login-form__greeting-logo') ANIMEDIUM
+                +validationErrorSummary(errors)
+                form(action='/signup' method='post' class='signup-form__form')
+                    input(type='hidden' name='_csrf' value=csrfToken)
+                    +field('Email Address:', 'email', user.email, 'email', 'jojo@adventures.com', 'signup-form__email')
+                    +field('Screen Name:', 'screenName', user.screenName, 'text', null, 'signup-form__name')
+                    +field('Password:', 'password', user.password, 'password', null, 'signup-form__password')
+                    +field('Confirm Password:', 'confirmPassword', user.confirmPassword, 'password', null, 'signup-form__confirmPassword')
+                    div(class='login-form__submit-container')
+                        button(type="submit" class='signup-form__submit') Signup
+                        a(href='/' class='signup-form__cancel') Cancel
+                    div(class='signup-form__with-account-option')
+                        a(href='/login' id='signup-form__login' data-hover='Click to Login') Already have an account?
+    link(rel="stylesheet", href="/stylesheets/signup.css")
+    link(rel="stylesheet", href="/stylesheets/login.css")
+

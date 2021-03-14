@@ -48,11 +48,34 @@
     box-shadow: 1.5px 1.5px 1.5px rgba(160, 160, 160, 0.45);
 }
 
-.comment-view__comment-author {
+.comment-view__comment-author-container {
+    display:grid;
+    grid-template-columns: 60px 1fr 2fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        'img author .  like'
+}
+
+.comment-view__comment-author-image {
+    grid-area:img;
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+}
+
+.comment-view__comment-like-container {
+    grid-area: like;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.comment-view__comment-author-screen-name {
+    grid-area: author;
     text-shadow: 2px 2px 2px rgba(170, 170, 170, 0.65);
     position: relative;
-    left: 25px;
     font-size: 20px;
+    left:10px;
 }
 
 .comment-view__comment-body {

@@ -41,12 +41,11 @@ block content
             pre(class='story-body__content')=story.body
 
         div(class='comment-container')
-            //- button(type='button' class=`${story.id}` id='view-comment-button') View Comments...
             div(class='comment-view-container')
                  ul(class='comment-view-list' id='comment__view-list')
             div(class='comment-view__icons-container')
                 img(title='Toggle Comments' src='/icons8-comments-24.png' class=`${story.id} view-comment__icon form__icon` id='view-comment-icon')
-                //- button(type='button' class=`${story.id}` id='add-comment-button') Add Comment...
+
                 img(title='Write Comment' src='/icons8-edit-64.png' class=`${story.id} add-comment__icon form__icon` id='add-comment-icon')
 
             div(class='comment-form-container hidden' id='comment-form-container')

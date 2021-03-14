@@ -18,12 +18,6 @@
     background:white;
 }
 
-.comment-view-container{
-
-}
-.view-comment__icon{
-
-}
 .comment-view-list {
     height:100%;
     width:100%;
@@ -100,14 +94,6 @@
     display:flex;
     justify-content:space-around;
     padding:20px;
-}
-
-
-.comment-form__submit-icon {
-}
-
-.comment-form__cancel-icon {
-
 }
 
 .comment-form-container{

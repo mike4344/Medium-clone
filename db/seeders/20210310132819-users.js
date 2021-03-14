@@ -447,6 +447,6 @@ down: (queryInterface, Sequelize) => {
 
       Example:
       */
-   return queryInterface.bulkDelete('User', null, {});
+   return queryInterface.bulkDelete('Users', null, {});
   }
 };

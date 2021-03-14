@@ -32,9 +32,10 @@
     text-transform: capitalize;
     justify-self: center;
     align-self: center;
-    background-image: url('https://www.stevenmepham.co.uk/wp-content/uploads/2019/06/Anime-Banner.jpg');
+    background-image: url('../banner-pic.jpeg');
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
+    -webkit-text-stroke: 1px black;
     color: transparent;
 }

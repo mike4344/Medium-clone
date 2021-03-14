@@ -631,7 +631,7 @@ Posidonium ullamcorper nam in, nec altera indoctum ut, in mel blandit postulant 
         {
           title: "Why You Wouldn't Want To Be Immortal",
           subtitle: "My struggles (as an immortal)",
-          pictureURL: 'https://i.imgur.com/4Q7pDQN.jpg',
+          pictureURL: 'https://i.imgur.com/M60XWFw.gif',
           body: `Ea vim invenire patrioque, quod efficiantur intellegebat est ex. Purto quando nam ne, commune theophrastus sit ne, quod esse nam te? Est erant maiorum percipitur te? Primis omnesque consequat ne vix, ut mei tation invidunt sententiae. Assum latine vim eu, at semper fierent dissentiunt sit. Ipsum appareat apeirian no sit, veri salutatus mei eu.
 
 Eam perpetua maluisset reformidans ei, nam sale commodo singulis ea! Cu verear philosophia eos. Sumo atqui est no, nibh intellegebat sea id. Pro ad facete bonorum, vix dictas mnesarchum liberavisse te.
@@ -858,7 +858,7 @@ Posidonium ullamcorper nam in, nec altera indoctum ut, in mel blandit postulant 
         {
           title: "Protecting My Little Brother",
           subtitle: "Playing the villain",
-          pictureURL: "https://i.imgur.com/uRbnOG8.gif",
+          pictureURL: "https://i.imgur.com/NvT0QMG.gif",
           body: `Eu cum brute partem nostro. Tritani aliquid vulputate has in, an nam tale efficiantur accommodare. Id vero detracto offendit mei, choro aliquip definiebas ea mei. Usu ei minim voluptua, consul noluisse ei his, autem efficiendi et per. Usu assum vidisse corpora no, sonet decore cum ea, quo congue volumus corpora id? Ex alterum gubergren per, eum honestatis eloquentiam ea.
 
 Ut ius fierent platonem? Nam nemore scribentur no? Vocibus deserunt dissentiunt vim ne, no aeque aliquip quaerendum qui. Maiorum persecuti sadipscing vis in, et cum lobortis platonem. Ei pri nibh salutatus, volumus laboramus ne vel.
@@ -908,7 +908,7 @@ Posidonium ullamcorper nam in, nec altera indoctum ut, in mel blandit postulant 
         {
           title: "SPOILERS! What I Look Like Without A Mask",
           subtitle: "Shocking Content",
-          pictureURL: '',
+          pictureURL: 'https://i.imgur.com/VgjfrSf.gif',
           body: `Eu cum brute partem nostro. Tritani aliquid vulputate has in, an nam tale efficiantur accommodare. Id vero detracto offendit mei, choro aliquip definiebas ea mei. Usu ei minim voluptua, consul noluisse ei his, autem efficiendi et per. Usu assum vidisse corpora no, sonet decore cum ea, quo congue volumus corpora id? Ex alterum gubergren per, eum honestatis eloquentiam ea.
 
 Ut ius fierent platonem? Nam nemore scribentur no? Vocibus deserunt dissentiunt vim ne, no aeque aliquip quaerendum qui. Maiorum persecuti sadipscing vis in, et cum lobortis platonem. Ei pri nibh salutatus, volumus laboramus ne vel.
@@ -1258,7 +1258,7 @@ Posidonium ullamcorper nam in, nec altera indoctum ut, in mel blandit postulant 
         {
           title: "Posture Tips For Everyone",
           subtitle: "Bettter posture better life",
-         // pictureURL: "https://i.pinimg.com/originals/c8/da/d9/c8dad9adc797ed151874ab87f85f3865.gif",
+          pictureURL: "https://i.pinimg.com/originals/c8/da/d9/c8dad9adc797ed151874ab87f85f3865.gif",
           body: `No eam nisl wisi perpetua. Eu cum brute partem nostro. Tritani aliquid vulputate has in, an nam tale efficiantur accommodare. Id vero detracto offendit mei, choro aliquip definiebas ea mei. Usu ei minim voluptua, consul noluisse ei his, autem efficiendi et per. Usu assum vidisse corpora no, sonet decore cum ea, quo congue volumus corpora id? Ex alterum gubergren per, eum honestatis eloquentiam ea.
 
 Ut ius fierent platonem? Nam nemore scribentur no? Vocibus deserunt dissentiunt vim ne, no aeque aliquip quaerendum qui. Maiorum persecuti sadipscing vis in, et cum lobortis platonem. Ei pri nibh salutatus, volumus laboramus ne vel.
@@ -1631,7 +1631,7 @@ Posidonium ullamcorper nam in, nec altera indoctum ut, in mel blandit postulant 
         {
           title: "How To Grow A Third Eye",
           subtitle: "I see what you did there",
-          pictureURL: "https://i.imgur.com/Ss5Xvcv.gif",
+          pictureURL: "https://i.imgur.com/AVE1lWI.gif",
           body: `Ea vim invenire patrioque, quod efficiantur intellegebat est ex. Purto quando nam ne, commune theophrastus sit ne, quod esse nam te? Est erant maiorum percipitur te? Primis omnesque consequat ne vix, ut mei tation invidunt sententiae. Assum latine vim eu, at semper fierent dissentiunt sit. Ipsum appareat apeirian no sit, veri salutatus mei eu.
 
 Eam perpetua maluisset reformidans ei, nam sale commodo singulis ea! Cu verear philosophia eos. Sumo atqui est no, nibh intellegebat sea id. Pro ad facete bonorum, vix dictas mnesarchum liberavisse te.
@@ -1883,7 +1883,7 @@ Posidonium ullamcorper nam in, nec altera indoctum ut, in mel blandit postulant 
         {
           title: "A True Display Of 100% Of My Power",
           subtitle: "You shall see my power",
-          pictureURL: "",
+          pictureURL: "https://i.imgur.com/94XnwfM.gif",
           body: `Duo ex odio oblique? Eu cum brute partem nostro. Tritani aliquid vulputate has in, an nam tale efficiantur accommodare. Id vero detracto offendit mei, choro aliquip definiebas ea mei. Usu ei minim voluptua, consul noluisse ei his, autem efficiendi et per. Usu assum vidisse corpora no, sonet decore cum ea, quo congue volumus corpora id? Ex alterum gubergren per, eum honestatis eloquentiam ea.
 
 Ut ius fierent platonem? Nam nemore scribentur no? Vocibus deserunt dissentiunt vim ne, no aeque aliquip quaerendum qui. Maiorum persecuti sadipscing vis in, et cum lobortis platonem. Ei pri nibh salutatus, volumus laboramus ne vel.

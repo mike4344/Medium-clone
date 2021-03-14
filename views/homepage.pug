@@ -14,7 +14,13 @@ block content
     div(class='profile-banner')
             div(class='banner-picture-box')
                 h1(class='logo') A N I M E D I U M
-    div(class="homepage-stories")
+        
+    div(class="homepage-display")
+        div(class="homepage-users-container")
+            div(class='users-label-container'): H2(class='users-title') Explore Our Many Powerful Users!
+            div(class='users-display')
+                each user in users 
+                    div(class='users-name'): a(href=`/users/${user.id}`) !{user.screenName}
         div(class='high-like-stories')
             H2(class='stories-label') Most Liked Stories
             div(class='story-box-container')

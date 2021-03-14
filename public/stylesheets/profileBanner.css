@@ -36,5 +36,6 @@
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
+    -webkit-text-stroke: 1px black;
     color: transparent;
 }

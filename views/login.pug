@@ -4,17 +4,19 @@ include utils.pug
 
 block content
     form(action='/login' method='post' class='login-form__container')
+        div(class='login-form__greeting') Log in to 
+            span(class='login-form__greeting-logo') ANIMEDIUM
         +validationErrorSummary(errors)
         input(type='hidden' name='_csrf' value=csrfToken)
         +field('Email Address: ','email', email, 'email', null, 'login-form__email')
         +field('Password: ', 'password', null, 'password', null, 'login-form__password')
-        div
+        div(class='login-form__submit-container')
             button(type='submit' class='login-form__submit') Login
             a(href="/" class='login-form__cancel') Cancel
-    div(class='login-form__no-account-options')
-        p: a(href="/signup" class='login-form__signup') Don't have an account? Click to Signup
-        p(class='login-form__or') Or
-        button(type='button' id='random-demo-user') Random Demo User
+        div(class='login-form__no-account-options')
+            p: a(href="/signup" class='login-form__signup') Don't have an account? Click to Signup
+            p(class='login-form__or') Or
+            button(type='button' id='random-demo-user' data-hover='Login as an Anime character') Random Demo User
     script(src='/javascripts/randomDemoUser.js')
     link(rel="stylesheet", href="/stylesheets/login.css")
     link(link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;900&display=swap" rel="stylesheet")

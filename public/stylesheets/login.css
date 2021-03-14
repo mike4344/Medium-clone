@@ -1,15 +1,43 @@
+body {
+    background-color: #f9f9f9 !important;
+}
+
 .login-form__container {
-    /* grid-area-template: 
-    "email email"
-    "password password"
-    "login cancel"; */
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10%;
-    height: 300px;
+    justify-content: center;
+    padding: 5%;
+    height: 100%;
+    width: 100%;
     gap: 50px;
     font-family: 'Cinzel', serif;
+}
+
+.login-form__greeting {
+    font-weight: 900;
+    font-size: 40px;
+    display: block;
+    box-sizing: border-box;
+}
+
+.login-form__greeting-logo {
+    margin-left: 10px;
+    font-size: 70px;
+    font-weight: 900;
+    background-image: url('https://www.stevenmepham.co.uk/wp-content/uploads/2019/06/Anime-Banner.jpg');
+    background-size: 250%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-stroke: 1px black;
+    animation: beatingLogo ease-in 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 .login-form__email {
@@ -21,24 +49,73 @@
     font-size: 25px;
 }
 
+.login-form__submit-container {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
 .login-form__submit {
-    margin-right: 40px;
-    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 45px;
+    width: 90px;
+    margin-right: 50px;
+    font-size: 20px;
+    font-family: 'Cinzel', serif;
+    font-weight:900;
+    color: #113a5d;
+    background-color: #c4ffdd;
+    border: 3px;
+    border-color: #f9f9f9;
+    border-style: inset outset outset inset;
+    border-radius: 25%;
+}
+
+.login-form__submit:hover {
+    color: #f9f9f9;
+    background-color: #062743;
+    border: 6px solid #f9f9f9;
+    border-style: outset inset inset outset;
+    font-size: 18px;
 }
 
 .login-form__cancel {
-    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 45px;
+    width: 90px;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight:900;
+    color: #113a5d;
+    background-color: #c4ffdd;
+    border-radius: 50%;
+    border: 3px solid #f9f9f9;
+    border-style: inset outset outset inset;
+    border-radius: 25%;
+}
+
+.login-form__cancel:hover {
+    color: #f9f9f9;
+    background-color: #062743;
+    border: 6px solid #f9f9f9;
+    border-style: outset inset inset outset;
+    font-size: 18px;
+
 }
 
 .errors {
     position: relative;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
-    /* display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-items: baseline; */
-    /* color: red */
 }
 
 .errors > p {
@@ -46,17 +123,74 @@
 }
 
 .login-form__no-account-options {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    margin-right: 15%;
+    align-items: center;
 }
 
 .login-form__signup {
+    font-size: 25px;
+    color: #062743;
 }
 
 .login-form__or {
+    font-size: 25px;
+    color: #062743;
 }
 
 #random-demo-user {
+    box-sizing: border-box;
+    font-family: 'Cinzel', serif;
+    font-weight:900;
+    font-size: 40px;
+    color: white;
+    background-color: #c4ffdd;
+    padding: 50px;
+    border: 1px;
+    border-width: 2px 4px;
+    border-radius: 40px;
+    width: 800px;
+    height: 200px;
+    min-width: 50%;
+    background-image: url('https://www.stevenmepham.co.uk/wp-content/uploads/2019/06/Anime-Banner.jpg');
+    background-size: cover;
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    transition-property: font-size;
+    transition-duration: 2s;
+}
+
+
+#random-demo-user:hover {
+    font-size: 0;
+    transition: opacity 2s;
+    animation: fadeInBanner ease-in 1.5s;
+    animation-iteration-count: 1;
+    animation-direction: forwards;
+    background-image: url('https://www.memedroid.com/images/tag-descriptions/1/banner_anime.jpg');
+    background-size: cover;
+    
+}
+
+#random-demo-user:hover:after {
+    font-size: 40px;
+    content: attr(data-hover)
+}
+
+@keyframes beatingLogo {
+    0% {
+        opacity: 0.1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInBanner {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

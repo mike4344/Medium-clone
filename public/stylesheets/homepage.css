@@ -48,8 +48,9 @@ body {
     justify-content: center; 
     background: linear-gradient(to bottom, #113A5D,#f9f9f9);
     border-radius: 1px;
-
-
+}
+.homepage-users-container:hover {
+    box-shadow: 10px 10px 10px 8px #062743;
 }
 .users-title {
     font-size: 20px;
@@ -130,6 +131,10 @@ body {
         "image info info";
     
 
+}
+.main-story-box:hover {
+    /* border:2px solid #062743; */
+    box-shadow: 0 10px 10px 5px #062743;
 }
 .story-box-image {
     grid-area: image;

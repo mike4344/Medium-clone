@@ -93,7 +93,8 @@ body {
     align-items: center;
     box-sizing: border-box;
     margin-top: 35px;
-    padding: 15px;
+    padding-right: 150px;
+    padding-left: 150px;
     margin: 5px;
     border-top: solid 1px;
     background-color: #f9f9f9;

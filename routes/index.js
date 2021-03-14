@@ -24,10 +24,12 @@ router.get('/homepage', asyncHandler( async(req, res, next) => {
     order: [["createdAt", "asc"]],
     include: db.User,
   });
-  // const randomStories = await db.Story.findAll({ 
-  //   limit: 5,
-  //   order: Sequelize.random()
-  // })
+  const randomStories = await db.Story.findAll({
+    limit: 5,
+    order: Sequelize.literal('random()'),
+    include: db.User,
+  })
+
   // const likedStories = await db.Story.findAll({
   //   include: [{
   //     model: Likes
@@ -41,7 +43,7 @@ router.get('/homepage', asyncHandler( async(req, res, next) => {
     loggedInUser = await db.User.findByPk(req.session.auth.userId);
   }
 
-  res.render('homepage', {title: "ANIMEDIUM!", stories, users, sortedUsers, recentStories, loggedInUser, convertDate })
+  res.render('homepage', {title: "ANIMEDIUM!", stories, users, sortedUsers, recentStories, loggedInUser, randomStories, convertDate })
 }))
 
 

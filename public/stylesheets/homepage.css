@@ -1,5 +1,5 @@
 body {
-    background-color:#F9F9F9
+    background-color: #113A5D
 }
 
 .h2-container {
@@ -14,32 +14,90 @@ body {
    font-size: 35px;
 }
 
-.homepage-stories {
+.homepage-display {
+    background-color: #f9f9f9;
     width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 95px;
     display: grid;
     grid-template-columns: 1fr 40% 40%;
-    grid-template-rows: 20% 1fr;
+    grid-template-rows: auto 1fr;
     grid-template-areas:
-    "side high-middle high-right"
-    "side low low";
+    "high-side high-middle high-right"
+    "low-side low low";
+}
+.homepage-users-container {
+    grid-area: high-side;
+    /* border: 5px solid; */
+    width: 75%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    box-sizing: border-box;
+    margin-top: 100px;
+    border-radius: 10px;
+    overflow-y: scroll;
+    position: sticky;
+    top:200px;
+    box-shadow: 10px 10px 10px 4px #113A5D;
+}
+.users-label-container {
+    box-sizing: border-box;
+    /* margin: 10px; */
+    justify-content: center; 
+    background: linear-gradient(to bottom, #113A5D,#f9f9f9);
+    border-radius: 1px;
+}
+.homepage-users-container:hover {
+    box-shadow: 10px 10px 10px 8px #062743;
+}
+.users-title {
+    font-size: 20px;
+    font-weight:900px;
+    
+    box-sizing: border-box;
+    margin: 10px;
+   
+}
+.users-display {
+    box-sizing: border-box;
+    padding-left: 15px;
 }
 .high-like-stories {
     grid-area: high-middle;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-sizing: border-box;
+    margin: 5px;
+    padding: 15px;
+    /* border: solid 1px; */
+    background-color: #f9f9f9;
 }
 .newest-stories {
     grid-area: high-right;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-sizing: border-box;
+    margin: 5px;
+    padding: 15px;
+    /* border: solid 1px; */
+    background-color: #f9f9f9;
 }
 .all-stories {
     grid-area: low;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-sizing: border-box;
+    margin-top: 35px;
+    padding-right: 150px;
+    padding-left: 150px;
+    margin: 5px;
+    border-top: solid 1px;
+    background-color: #f9f9f9;
 }
 .story-box-container {
     grid-area: middle;
@@ -51,19 +109,21 @@ body {
 .main-story-box {
     font-family: 'Cinzel', serif;
     font-weight: 100;
+    background: linear-gradient(to right, #113A5D,#f9f9f9);
     color: black;
-    border: 1px solid black;
+    /* border: 4px solid rgba(#113A5D, .4); */
     box-shadow: 0 10px 10px #113A5D;
     border-radius: 15px;
-    min-width: 75%;
+    min-width: 100%;
     min-height: 200px;
     position: relative;
-    margin-top: 5%;
-    margin-right: 5%;
-    margin-left: 5%;
+    margin-top: 3%;
+    margin-right: 3%;
+    margin-left: 3%;
+    padding: 5px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 20% 20% 20% 20% 20%;
+    grid-template-columns: 25% 1fr 1fr;
+    grid-template-rows: 30% 20% 20% 15% 15%;
     grid-template-areas:
         "image author author"
         "image title title"
@@ -73,33 +133,45 @@ body {
     
 
 }
+.main-story-box:hover {
+    /* border:2px solid #062743; */
+    box-shadow: 0 10px 10px 5px #062743;
+}
 .story-box-image {
     grid-area: image;
+    display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    border-radius: 15px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    /* margin: 5px; */
 }
 
 .story-box-nestedImage {
+    justify-content: center;
+    align-items: center;
     width: 100%;
+    min-height: 150px;
     max-height: 200px;
+    border-radius:10px;
     
 }
 
 .story-box-author {
-    margin-top: 3%;
-    grid-column-start: 3;
+    margin-top: 5px;
+    grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 2;
     overflow: hidden;
     display: flex;
+    justify-content: flex-end;
     
 }
 .story-box-author-name {
     box-sizing: border-box;
-    font-size: 20px;
+    font-size: 25px;
     display: flex;
     font-style: italic;
     text-decoration: none;
@@ -112,6 +184,7 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    display: flex;
 
 
 }
@@ -122,6 +195,12 @@ body {
     grid-column-end: 4;
     grid-row-start: 2;
     grid-row-end: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 5px;
+    padding: 5px;
     
 }
 
@@ -131,8 +210,7 @@ body {
     font-weight: 525;
     font-size: 25px;
     text-decoration: underline;
-    text-align: left;
-    margin-left: 3%;
+    text-align: center;
     color: #062743;
 
 }

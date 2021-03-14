@@ -59,7 +59,7 @@ body {
 .signup-form__container:hover .signup-form__word-create, 
 .signup-form__container:hover .signup-form__word-your, 
 .signup-form__container:hover .signup-form__word-account {
-    background: repeating-linear-gradient(yellow, gold, orange 10px);
+    background: repeating-linear-gradient(black, white, black 30px);
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;

@@ -3,13 +3,24 @@ extends layout.pug
 include utils.pug
 
 block content
-    +validationErrorSummary(errors)
-    form(action=`/users/${userId}/edit` method='post')
-        input(type='hidden' name='_csrf' value=csrfToken)
-        +field('Screen Name', 'screenName', user.screenName)
-        +field('Picture URL', 'pictureURL', user.pictureURL, 'url', "https://imgur.com/your-link-here")
-        +field('Biography', 'biography', user.biography, 'textarea', 'Tell the community something about yourself...')
+    div(class='edit-profile-page')
+        div(class='edit-profile__container')
+            if user.pictureURL
+                div(class='edit-profile__with-picture')
+                    img(class='user-picture' src=`${user.pictureURL}`)
+                    div(class='edit-profile__user-name')= user.screenName
+            if !user.pictureURL 
+                div(class='edit-profile__top-picture')
+                    div(class='edit-profile__user-name')= user.screenName
+            div(class='edit-profile__bottom-form')
+                +validationErrorSummary(errors)
+                form(action=`/users/${userId}/edit` method='post')
+                    input(type='hidden' name='_csrf' value=csrfToken)
+                    +field('Screen Name', 'screenName', user.screenName)
+                    +field('Picture URL', 'pictureURL', user.pictureURL, 'url', "https://imgur.com/your-link-here")
+                    +field('Biography', 'biography', user.biography, 'textarea', 'Tell the community something about yourself...')
 
-        div
-            button(type="submit") Update Profile
-            a(href=`/users/${userId}`) Cancel
+                    div
+                        button(type="submit") Update Profile
+                        a(href=`/users/${userId}`) Cancel
+    link(rel="stylesheet", href="/stylesheets/profile-edit.css")

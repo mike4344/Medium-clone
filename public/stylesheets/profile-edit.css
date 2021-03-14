@@ -1,0 +1,62 @@
+body {
+    background-color: #f9f9f9 !important;
+}
+
+.edit-profile-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5% 2%;
+    scroll-behavior: smooth;
+}
+
+.edit-profile__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px solid black;
+    height: 800px;
+    width: 100%;
+    max-width: 700px;
+    border-width: 2px 4px;
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.edit-profile__top-picture {
+    box-sizing: border-box;
+    background-image: url('../signup-page-pic.jpg');
+    box-sizing: border-box;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    /* align-self: flex-start;
+    justify-self: flex-start; */
+    color: white;
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.edit-profile__with-picture {
+    box-sizing: border-box;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* align-self: flex-start; */
+    /* justify-self: flex-start; */
+    color: white;
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.edit-profile__user-name {
+    display: flex;
+    align-self: flex-end;
+    /* flex-direction: column; */
+    /* align-self: flex-start; */
+}

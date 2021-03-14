@@ -3,13 +3,14 @@ var router = express.Router();
 const { logoutUser } = require('../auth')
 
 const db = require("../db/models");
+const { requireAuth } = require("../auth");
 const { csrfProtection, asyncHandler } = require("./utils");
 const convertDate = (timestamp) => timestamp.toString().slice(0, 16);
 const { Sequelize } = require("../db/models");
 const Op = Sequelize.Op;
 
 //working toward the official homepage.
-router.get('/homepage', asyncHandler( async(req, res, next) => {
+router.get('/homepage', requireAuth, asyncHandler( async(req, res, next) => {
   const stories = await db.Story.findAll({
     include: db.User,
   });
@@ -30,14 +31,6 @@ router.get('/homepage', asyncHandler( async(req, res, next) => {
     include: db.User,
   })
 
-  // const likedStories = await db.Story.findAll({
-  //   include: [{
-  //     model: Likes
-  //   }],
-  //   limit: 5,
-
-  // })
-
   let loggedInUser = null;
   if (req.session.auth) {
     loggedInUser = await db.User.findByPk(req.session.auth.userId);
@@ -55,14 +48,17 @@ router.get('/', asyncHandler( async(req, res, next)=> {
   if(req.session.auth){
     loggedInUser = await db.User.findByPk(req.session.auth.userId)
   }
-  res.render('temp-home', { title: 'Home', stories, users, loggedInUser });
+  if(loggedInUser){
+    res.redirect('/homepage')
+  }
+  res.render('splash', { title: 'Home', stories, users, loggedInUser });
 }));
 
 router.get('/logout', asyncHandler( async (req, res) => {
   if(req.session.auth){
     logoutUser(req)
   }
-  res.redirect('/')
+  res.redirect('/login')
 }))
 
 module.exports = router;

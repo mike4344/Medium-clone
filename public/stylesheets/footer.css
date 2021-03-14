@@ -1,7 +1,7 @@
 .footer {
     box-sizing: border-box;
-    position: fixed;
-    bottom: 0;
+    /* position: fixed;
+    bottom: 0; */
     min-width: 100%
 }
 .footer-container {
@@ -9,12 +9,12 @@
     justify-content: space-evenly;
     /* border: 1px solid; */
     box-sizing: border-box;
-    margin-top: 20px;
+    /* margin-top: 0px; */
     position: fixed;
     bottom: 0;
     min-width: 100%;
-    height: auto;
-    z-index: 3;
+    height: 100px;
+    /* z-index: 3; */
     background: linear-gradient(to right, #c4ffdd, #f9f9f9);
 }
 .personal-info-container {

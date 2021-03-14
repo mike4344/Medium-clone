@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     let emptyMessage = false;
     let errorMessage = false;
 
-    
 
     //Add comments ---
     if(commentSubmit){
@@ -145,7 +144,7 @@ document.addEventListener('DOMContentLoaded', async () => {
            errorMessage = false;
         }
     })
-    
+
     //Comment renderer helper function
     function renderComment(author, body, imgURL, id = null, currentUserLike = null, currentLikes = 0) {
         //container
@@ -160,15 +159,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         const commentLikeDiv = document.createElement('div');
         const commentLikeIcon = document.createElement('img');
         const likeAMTDisplay = document.createElement('p');
-    
+
         //Setting values of each element
         authorIMG.setAttribute('src', imgURL);
         authorScreenName.innerText = author;
         bodyDisplay.innerText = body;
         likeAMTDisplay.innerText = currentLikes;
 
-        
-        //Assigning classes to each element, used in 'comments' CSS 
+
+        //Assigning classes to each element, used in 'comments' CSS
         container.classList.add('comment-view__comment-container')
         authorContainer.classList.add('comment-view__comment-author-container');
         authorIMG.classList.add('comment-view__comment-author-image')
@@ -192,7 +191,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         commentLikeDiv.appendChild(commentLikeIcon);
         authorContainer.appendChild(authorIMG);
         authorContainer.appendChild(authorScreenName);
-        
+
         if(id){
             //Assigns event listener to icon
             authorContainer.appendChild(commentLikeDiv);
@@ -212,7 +211,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 await fetch(`/comments/${id}/likes`, { method: 'POST'})
                 return
             })
-        
+
         }
         //Appending to overall container
         container.appendChild(authorContainer);
@@ -222,8 +221,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         return container;
     }
 
-    
-    
+
+
 })
 
 // async function likeComment(id){

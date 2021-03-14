@@ -50,8 +50,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
 
                 //more 'hidden' inputs from our text area -- aka class list
-                const screenName = textArea.classList[2]
-                const pictureURL = textArea.classList[3]
+                const screenName = textArea.classList[3]
+                const pictureURL = textArea.classList[2]
 
                 commentUL.appendChild(renderComment(screenName, body, pictureURL));
 
@@ -95,13 +95,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
             //For each comment, creates elements, adds text to element, then appends element to page flow
                 comments.forEach(async (comment) => {
-                    // const likeAmountQuery = await fetch(`/comments/${comment.id}/likes`);
-                    // const likes = await likeAmountQuery.json();
+                    const likeAmountQuery = await fetch(`/comments/${comment.id}/likes`);
+                    const likes = await likeAmountQuery.json();
 
                     const currentUserCheck = await fetch(`/comments/${comment.id}/current-user`)
                     const currentUserLikeStatus = await currentUserCheck.json();
 
-                    commentUL.appendChild(renderComment(comment.User.screenName, comment.body, comment.User.pictureURL, comment.id, currentUserLikeStatus));
+                    commentUL.appendChild(renderComment(comment.User.screenName, comment.body, comment.User.pictureURL, comment.id, currentUserLikeStatus, likes.count));
                 })
                 //Toggles button text to 'hide comments' upon comment rendering and sets commentsVisible flag to true
                 commentViewButton.innerText = 'Hide Comments...'
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     })
     
     //Comment renderer helper function
-    function renderComment(author, body, imgURL, id = null, currentUserLike = null) {
+    function renderComment(author, body, imgURL, id = null, currentUserLike = null, currentLikes = 0) {
         //container
         const container = document.createElement('li');
         //authorbox
@@ -162,6 +162,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         authorIMG.setAttribute('src', imgURL);
         authorScreenName.innerText = author;
         bodyDisplay.innerText = body;
+        likeAMTDisplay.innerText = currentLikes;
 
         
         //Assigning classes to each element, used in 'comments' CSS 
@@ -172,6 +173,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         bodyDisplay.classList.add('comment-view__comment-body')
         commentLikeDiv.classList.add('comment-view__comment-like-container')
         commentLikeIcon.classList.add('form__icon');
+        commentLikeIcon.classList.add('comment-view__comment-like-icon');
+        likeAMTDisplay.classList.add('comment-view__comment-like-amount')
         // if(id) commentLikeIcon.classList.add(id);
 
         if(currentUserLike){
@@ -182,6 +185,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         //Appends each element to its respective container
+        commentLikeDiv.appendChild(likeAMTDisplay);
         commentLikeDiv.appendChild(commentLikeIcon);
         authorContainer.appendChild(authorIMG);
         authorContainer.appendChild(authorScreenName);
@@ -195,20 +199,21 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if(commentLikeIcon.classList[1]){
                     commentLikeIcon.classList.remove('active');
                     commentLikeIcon.setAttribute('src', '/icons8-star-64.png')
+                    likeAMTDisplay.innerText--;
                 }else{
                     commentLikeIcon.classList.add('active')
                     commentLikeIcon.setAttribute('src', '/icons8-star-64-yellow.png')
+                    likeAMTDisplay.innerText++;
                 }
-
 
                 await fetch(`/comments/${id}/likes`, { method: 'POST'})
                 return
             })
         
+        }
         //Appending to overall container
         container.appendChild(authorContainer);
         container.appendChild(bodyDisplay);
-        }
 
         //returns container to be appended to parent
         return container;

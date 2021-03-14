@@ -29,12 +29,12 @@ router.post('/comments/:commentId(\\d+)/likes', requireAuth, asyncHandler(async(
 //like number query for comments
 router.get('/comments/:commentId(\\d+)/likes', asyncHandler(async(req, res) => {
     const commentId = parseInt(req.params.commentId, 10)
-    const likes = db.CommentLike.findAllAndCount({
+    const likes = await db.CommentLike.findAndCountAll({
         where: {
             commentId: commentId
         }
     })
-    res.json(likes);
+    await res.json(likes);
 }))
 
 //Has current user liked this particular comment
@@ -48,7 +48,7 @@ router.get('/comments/:commentId(\\d+)/current-user', asyncHandler(async(req, re
                 userId: userId
             }
         })
-        res.json(like)
+       await res.json(like)
     }
 }))
 

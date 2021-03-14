@@ -185,6 +185,7 @@
 .story-titlebox__like-button-image {
     width:40px;
     height:40px;
+    border-radius:50%;
 }
 
 .story-titlebox__like-button-image:hover {

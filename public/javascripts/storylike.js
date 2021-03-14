@@ -10,12 +10,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if(likeImage.classList[1] != undefined){
             likeImage.src = '../icons8-star-64.png'
-            await likeImage.classList.remove('active');
+            likeImage.classList.remove('active');
             likeCount.innerHTML--
             likeImage.title ='Like'
         }else{
             likeImage.src = '../icons8-star-64-yellow.png'
-            await likeImage.classList.add('active');
+            likeImage.classList.add('active');
             likeCount.innerHTML++
             likeImage.title = 'Unlike'
         }

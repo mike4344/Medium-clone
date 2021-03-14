@@ -17,6 +17,7 @@ const storyRouter = require('./routes/stories')
 const userRouter = require('./routes/users');
 const storyLikeRouter = require('./routes/storylikes');
 const commentsRouter = require('./routes/comments');
+const commentLikeRouter = require('./routes/commentLikes');
 
 const app = express();
 
@@ -54,6 +55,7 @@ app.use('/stories', storyRouter);
 app.use('/users', userRouter);
 app.use(storyLikeRouter);
 app.use(commentsRouter);
+app.use(commentLikeRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

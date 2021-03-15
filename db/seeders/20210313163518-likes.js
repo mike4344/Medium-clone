@@ -6,13 +6,20 @@ let randomUser = () => Math.floor(Math.random() * 40 + 1)
 let likeArray = []
 //Push the specified number of likes into the array
 let likeCreator = (likeAmount) => {
+  let pairs = []
   for(let i = 0 ; i < likeAmount ; i++){
-    likeArray.push({
-     userId : randomUser(),
-     storyId: randomStory(),
-     createdAt: new Date(),
-     updatedAt: new Date()
-    })
+    let newPair = [randomUser(), randomStory()]
+    let exists = pairs.find(el => el[0] === newPair[0] && el[1] === newPair[1])
+
+    if(!exists){
+      pairs.push(newPair);
+      likeArray.push({
+        userId : newPair[0],
+        storyId: newPair[1],
+        createdAt: new Date(),
+        updatedAt: new Date()
+      })
+    }
   }
 }
 

@@ -204,21 +204,23 @@ document.addEventListener('DOMContentLoaded', async () => {
             //Assigns event listener to icon
             authorContainer.appendChild(commentLikeDiv);
 
-            commentLikeIcon.addEventListener('click', async () => {
+            if(commentSubmit){
+                commentLikeIcon.addEventListener('click', async () => {
 
-                if(commentLikeIcon.classList[1]){
-                    commentLikeIcon.classList.remove('active');
-                    commentLikeIcon.setAttribute('src', '/icons8-star-64.png')
-                    likeAMTDisplay.innerText--;
-                }else{
-                    commentLikeIcon.classList.add('active')
-                    commentLikeIcon.setAttribute('src', '/icons8-star-64-yellow.png')
-                    likeAMTDisplay.innerText++;
-                }
+                    if(commentLikeIcon.classList[1]){
+                        commentLikeIcon.classList.remove('active');
+                        commentLikeIcon.setAttribute('src', '/icons8-star-64.png')
+                        likeAMTDisplay.innerText--;
+                    }else{
+                        commentLikeIcon.classList.add('active')
+                        commentLikeIcon.setAttribute('src', '/icons8-star-64-yellow.png')
+                        likeAMTDisplay.innerText++;
+                    }
 
-                await fetch(`/comments/${id}/likes`, { method: 'POST'})
-                return
-            })
+                    await fetch(`/comments/${id}/likes`, { method: 'POST'})
+                    return
+                })
+            }
 
         }
         //Appending to overall container

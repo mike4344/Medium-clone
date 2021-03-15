@@ -10,39 +10,31 @@ append head
 include utils.pug
 
 block content
-    div(class='profile-banner')
-            div(class='banner-picture-box')
-                h1(class='logo') A N I M E D I U M
-        
-    div(class='profile-main-body')
-        div(class='profile-title') !{user.screenName}'s Profile
-        div(class='profile-card')
-            if user.pictureURL
-                div(class='user-picture-box')
-                    img(class='user-picture' src=`${user.pictureURL}`)
-                    h1(class='user-name')= user.screenName
-            if user.biography 
-                div(class='user-biography-box')
-                    p(class='user-biography-text')= user.biography
-            if currentUserId === user.id
-                div(class='profile-owner-buttons')
-                    a(href=`/users/${user.id}/edit`)
-                        button(class='button edit-button') Edit Profile
+    div(class='profile-full-body')
+        div(class='profile-banner')
+                div(class='banner-picture-box')
+                    h1(class='logo') A N I M E D I U M
             
-        //mixin here
-        div(class='story-box-container')
-            each userStory in userStories 
-                - let date = convertDate(userStory.createdAt);
-                +storyBox(userStory.id, userStory.title, userStory.subtitle, user, userStory.pictureURL, date)
-                //- div(class=`storyBox__like-button-container ${userStory.id}` id='like-button' name=userStory.id)
-                //-     if currentUserId
-                //-         if currentUserStoryLike
-                //-             img(src='../icons8-star-64-yellow.png' class='storyBox__like-button-image active' id='storyBox__like-button-image')
-                //-         else
-                //-             img(src='../icons8-star-64.png' class='storyBox__like-button-image' id='storyBox__like-button-image')
-                //- div(class='storyBox__like-count-container' id='storyBox__like-count-container')
-                //-     p(class='storyBox__like-count' id='storyBox__like-count')=likeCount
-
+        div(class='profile-main-body')
+            div(class='profile-title') !{user.screenName}'s Profile
+            div(class='profile-card')
+                if user.pictureURL
+                    div(class='user-picture-box')
+                        img(class='user-picture' src=`${user.pictureURL}`)
+                        h1(class='user-name')= user.screenName
+                if user.biography 
+                    div(class='user-biography-box')
+                        p(class='user-biography-text')= user.biography
+                if currentUserId === user.id
+                    div(class='profile-owner-buttons')
+                        a(href=`/users/${user.id}/edit`)
+                            button(class='button edit-button profile-edit-button') Edit Profile
+                
+            //mixin here
+            div(class='story-box-container')
+                each userStory in userStories 
+                    - let date = convertDate(userStory.createdAt);
+                    +storyBox(userStory.id, userStory.title, userStory.subtitle, user, userStory.pictureURL, date)
 
 
 

@@ -1,7 +1,18 @@
+.profile-full-body{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #f9f9f9;
+    align-items: center;
+    min-height: 100vh;
+}
 
 .profile-main-body {
+    max-width: 1400px;
+    box-sizing: border-box;
     position: relative;
-    background-color: #f9f9f9;
+    justify-content: space-between;
     display: grid;
     grid-template-columns: 30% 70%;
     grid-template-rows: 80px 1fr;
@@ -10,10 +21,19 @@
     "card stories";
 }
 
+.profile-banner {
+    box-sizing: border-box;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 .banner-picture-box {
-   
-    /* height: 20em; */
+    box-sizing: border-box;
+    display: flex;
     width: 100%;
+    height: auto;
 }
 
 .profile-title {
@@ -31,8 +51,9 @@
 .profile-card {
     grid-area: card;
     position: sticky;
-    top: 100px;
+    /* top: 100px; */
     width: 100%;
+    height: 100%;
 }
 
 .story-box-container {

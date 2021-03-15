@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             body: JSON.stringify(demoCreds)
         })
         if (fetchRes) {
-            window.location.replace('/')
+            window.location.replace('/homepage')
         }
 
     })

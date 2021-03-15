@@ -61,5 +61,6 @@
 .profile-owner-buttons {
     grid-area: button;
     box-sizing: border-box;
-    margin: 8px;
+    margin: 5px;
+    padding-left: 50px;
 }

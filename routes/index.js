@@ -22,7 +22,7 @@ router.get('/homepage', requireAuth, asyncHandler( async(req, res, next) => {
   //want to find 5 most recently written stories and display them.
   const recentStories = await db.Story.findAll({
     limit: 5,
-    order: [["createdAt", "asc"]],
+    order: [["createdAt", "desc"]],
     include: db.User,
   });
   const randomStories = await db.Story.findAll({

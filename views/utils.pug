@@ -23,7 +23,7 @@ mixin storyBox(storyId, title, subtitle, user, storyPicture, date)
         img(class='story-box-nestedImage' src=storyPicture)
     div(class='story-box-author') 
       a(href=`/users/${user.id}` class='story-box-author-name')= user.screenName
-        img(class='story-box-author-picture' src=`${user.pictureURL}`) 
+      img(class='story-box-author-picture' src=`${user.pictureURL}`) 
     div(class='story-box-titles')
       a(href=`/stories/${storyId}`)
         div(class='story-box-titles-title')= title

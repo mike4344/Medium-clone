@@ -1,9 +1,7 @@
-.footer {
+/* .footer {
     box-sizing: border-box;
-    /* position: fixed;
-    bottom: 0; */
     min-width: 100%
-}
+} */
 .footer-container {
     display: flex;
     justify-content: space-evenly;
@@ -15,14 +13,15 @@
     min-width: 100%;
     height: 100px;
     /* z-index: 3; */
-    background: linear-gradient(to right, #c4ffdd, #f9f9f9);
+    background: linear-gradient(to bottom, #f9f9f9,#c4ffdd );
+    background-color: #c4ffdd
 }
 .personal-info-container {
     display: inline-block;
-    border: 1px solid #113A5D;
+    /* border: 1px solid #113A5D; */
     border-radius: 10px;
     box-sizing: border-box;
-    background: linear-gradient(to right, #c4ffdd, #f9f9f9);
+    /* background: linear-gradient(to right, #c4ffdd, #f9f9f9); */
     color: black;
     margin-top: 5px;
     margin-bottom: 5px;

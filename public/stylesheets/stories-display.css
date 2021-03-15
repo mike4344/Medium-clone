@@ -10,7 +10,8 @@
         '. body .'
         '. body .'
         '. body .'
-        '. comments .'
+        '. comments .';
+        min-height: 100vh;
     }
 }
 
@@ -26,7 +27,8 @@
             'body'
             'body'
             'body'
-            'comments'
+            'comments';
+            min-height: 100vh;
     }
 }
 

@@ -47,7 +47,7 @@ router.post('/', csrfProtection, loginValidators, asyncHandler(async (req, res, 
             const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
             if (passwordMatch){
                 loginUser(req, res, user);
-                return res.redirect('/');
+                return res.redirect('/homepage');
             }
         }
         errors.push('Email and password is an invalid combination');
@@ -73,7 +73,7 @@ router.post('/random-demo', asyncHandler( async (req, res) => {
         const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
         if (passwordMatch){
             loginUser(req, res, user);
-            res.redirect('/');
+            res.redirect('/homepage');
         }
     }
 }))

@@ -222,11 +222,14 @@ router.post('/:storyId(\\d+)/delete', requireAuth, csrfProtection, asyncHandler(
 
         comments.forEach(async comment => {
 
-            await db.CommentLike.destroy({
+            const likes = await db.CommentLike.findAll({
                 where: {
-                    commentId: comment.id
+                    'commentId': comment.id
                 }
             })
+            likes.forEach(async like => {
+                await like.destroy();
+            }) 
 
             await comment.destroy();
         })

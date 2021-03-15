@@ -1,66 +1,90 @@
 .profile-card {
-    /* background: linear-gradient(to left, yellow, rgba(0, 26, 255, 0.774)); */
     font-family: 'Cinzel', serif;
     box-sizing: border-box;
     position: sticky;
-    width: 80%;
-    height: 500px;
+    width: 300px;
+    height: 100%;
     border: 3px;
-    display: grid;
-    grid-template-rows: 60% 1fr 10%;
-    grid-template-areas:
-        "pictureBox"
-        "biography"
-        "button";
-}
-
-.user-picture-box {
-    grid-area: pictureBox;
-    /* border-radius: 100px; */
-    margin-top: 10%;
-    /* margin-left: 10%; */
-    /* position: relative; */
     display: flex;
     flex-direction: column;
     align-items: center;
+
+}
+
+.user-picture-box {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    height: 350px;
+    width: 100%;
     
 }
 
 .user-picture { 
-    /* position: relative; */
     box-sizing: border-box;
-    width: 20em;
-    height: 20em;
+    display: flex;
+    width: 300px;
+    height: 350px;
     border-radius: 50%;
-    justify-self: center;
-    /* box-shadow: -3px -3px 30px 30px rgba(0,0,0,.15); */
+    box-shadow: -3px -3px 10px 10px rgba(0,0,0,.15);
+    border: 5px solid #062743;
 }
 
 .user-name {
-    /* grid-area: userName; */
-    /* position: relative; */
+    box-sizing: border-box;
     font-weight: 900;
     justify-self: center;
-    left: 5%;
     color: #062743;
+    margin-top: 10px;
 }
 
 .user-biography-box {
-    /* position: relative; */
-    grid-area: biography;
     box-sizing: border-box;
     padding: 8px;
-    /* border: 5px solid; */
-    /* border-image-source: repeating-linear-gradient(to left, #062743, #113a5d, #c4ffdd, #f9f9f9); */
-    border-color: #062743;
+    display: flex;
+    align-items: flex-start;
+    /* border: 5px solid;
+    border-image-source: repeating-linear-gradient(to left, #062743, #113a5d, #c4ffdd, #f9f9f9); */
+    /* border-color: #062743; */
     border-image-slice: 1;
     color: #113a5d;
     text-align: center;
+    overflow: scroll;
+    height: 100%;
 }
 
 .profile-owner-buttons {
-    grid-area: button;
     box-sizing: border-box;
     margin: 5px;
     padding-left: 50px;
+}
+
+.profile-edit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 45px;
+    width: 120px;
+    margin-right: 50px;
+    font-size: 15px;
+    font-family: 'Cinzel', serif;
+    font-weight:900;
+    color: #113a5d;
+    background-color: #c4ffdd;
+    border: 3px;
+    border-color: #f9f9f9;
+    border-style: inset outset outset inset;
+    border-radius: 25%;
+    text-decoration: none;
+}
+
+.profile-edit-button:hover {
+    color: #f9f9f9;
+    background-color: #062743;
+    border: 6px solid #f9f9f9;
+    border-style: outset inset inset outset;
+    font-size: 13px;
 }

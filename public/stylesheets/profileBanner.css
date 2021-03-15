@@ -14,24 +14,18 @@
     background-color: black;
 }
 
-.banner-picture {
+/* .banner-picture {
     height: 100%;
     display: none;
-}
+} */
 
 .logo {
     display: flex;
     position: relative;
-    /* color: white; */
-    /* bottom: 10%;
-    left: 10%; */
-    font-size: 9vmax;
+    font-size: 100px;
     font-family: 'Cinzel', serif;
     font-weight: 900;
-    /* font-variant: small-caps; */
     text-transform: capitalize;
-    justify-self: center;
-    align-self: center;
     background-image: url('../banner-pic.jpeg');
     -webkit-background-clip: text;
     -moz-background-clip: text;

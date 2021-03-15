@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     //Add comments ---
     if(commentSubmit){
+        console.log(commentSubmit);
         commentSubmit.addEventListener('click', async () => {
             //grab input
             const textArea = document.getElementById('comment__body');
@@ -86,7 +87,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             //fetches and formats all comments related to this story
             const commentsResponse = await fetch(`/stories/${storyId}/comments`);
             const comments = await commentsResponse.json()
-
+            
             //If no comments, renders message to user
             if(comments.length === 0){
                 const msg = document.createElement('h1');
@@ -95,15 +96,18 @@ document.addEventListener('DOMContentLoaded', async () => {
                 commentUL.appendChild(msg);
                 emptyMessage = true;
             }
+            
             //For each comment, creates elements, adds text to element, then appends element to page flow
-                comments.forEach(async (comment) => {
-                    const likeAmountQuery = await fetch(`/comments/${comment.id}/likes`);
-                    const likes = await likeAmountQuery.json();
-
-                    const currentUserCheck = await fetch(`/comments/${comment.id}/current-user`)
-                    const currentUserLikeStatus = await currentUserCheck.json();
-
-                    commentUL.appendChild(renderComment(comment.User.screenName, comment.body, comment.User.pictureURL, comment.id, currentUserLikeStatus, likes.count));
+            comments.forEach(async (comment) => {
+                const likeAmountQuery = await fetch(`/comments/${comment.id}/likes`);
+                const likes = await likeAmountQuery.json();
+                
+                const currentUserCheck = await fetch(`/comments/${comment.id}/current-user`)
+                const currentUserLikeStatus = await currentUserCheck.json();
+                
+                console.log(currentUserLikeStatus);
+                commentUL.appendChild(renderComment(comment.User.screenName, comment.body, comment.User.pictureURL, comment.id, currentUserLikeStatus, likes.count));
+                console.log(commentUL);
                 })
                 //Toggles button text to 'hide comments' upon comment rendering and sets commentsVisible flag to true
                 commentViewButton.innerText = 'Hide Comments...'
@@ -119,31 +123,35 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
     //'add comment' button activates comment form
-    commentAddButton.addEventListener('click', () => {
-        commentFormContainer.classList[1] === 'hidden' ? commentFormContainer.classList.remove('hidden') : commentFormContainer.classList.add('hidden');
-        // commentAddButton.classList.add('hidden');
-    })
-    //Mouse over control
-    commentAddButton.addEventListener('mouseover', () => {
-        commentAddButton.src = '/icons8-edit.gif'
-    })
-    //mouse leave conrtol
-    commentAddButton.addEventListener('pointerleave', () => {
-        commentAddButton.src = '/icons8-edit-64.png'
-    })
+        commentAddButton.addEventListener('click', () => {
+            commentFormContainer.classList[1] === 'hidden' ? commentFormContainer.classList.remove('hidden') : commentFormContainer.classList.add('hidden');
+        })
 
-    //'trash' comment icon deactivates comment form
-    cancelCommentButton.addEventListener('click', () => {
-        const textArea = document.getElementById('comment__body');
-        textArea.value = ''
-        commentFormContainer.classList.add('hidden');
-        commentAddButton.classList.remove('hidden');
-        if(errorMessage){
-           const errMsg = document.getElementById('error-message');
-           errMsg.remove();
-           errorMessage = false;
-        }
-    })
+        //Mouse over control
+        commentAddButton.addEventListener('mouseover', () => {
+            commentAddButton.src = '/icons8-edit.gif'
+        })
+        //mouse leave conrtol
+        commentAddButton.addEventListener('pointerleave', () => {
+            commentAddButton.src = '/icons8-edit-64.png'
+        })
+    
+    
+
+        //'trash' comment icon deactivates comment form
+    if(cancelCommentButton){
+        cancelCommentButton.addEventListener('click', () => {
+            const textArea = document.getElementById('comment__body');
+            textArea.value = ''
+            commentFormContainer.classList.add('hidden');
+            commentAddButton.classList.remove('hidden');
+            if(errorMessage){
+            const errMsg = document.getElementById('error-message');
+            errMsg.remove();
+            errorMessage = false;
+            }
+        })
+    }
 
     //Comment renderer helper function
     function renderComment(author, body, imgURL, id = null, currentUserLike = null, currentLikes = 0) {

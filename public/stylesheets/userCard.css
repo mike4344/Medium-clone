@@ -3,11 +3,11 @@
     font-family: 'Cinzel', serif;
     box-sizing: border-box;
     position: sticky;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 500px;
     border: 3px;
     display: grid;
-    grid-template-rows: 1fr 10% 1fr 10%;
+    grid-template-rows: 60% 1fr 10%;
     grid-template-areas:
         "pictureBox"
         "biography"
@@ -19,7 +19,7 @@
     /* border-radius: 100px; */
     margin-top: 10%;
     /* margin-left: 10%; */
-    position: relative;
+    /* position: relative; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,7 +27,7 @@
 }
 
 .user-picture { 
-    position: relative;
+    /* position: relative; */
     box-sizing: border-box;
     width: 20em;
     height: 20em;
@@ -37,7 +37,8 @@
 }
 
 .user-name {
-    position: relative;
+    /* grid-area: userName; */
+    /* position: relative; */
     font-weight: 900;
     justify-self: center;
     left: 5%;
@@ -45,15 +46,20 @@
 }
 
 .user-biography-box {
-    position: relative;
+    /* position: relative; */
     grid-area: biography;
-    border: 5px solid;
+    box-sizing: border-box;
+    padding: 8px;
+    /* border: 5px solid; */
     /* border-image-source: repeating-linear-gradient(to left, #062743, #113a5d, #c4ffdd, #f9f9f9); */
     border-color: #062743;
     border-image-slice: 1;
     color: #113a5d;
+    text-align: center;
 }
 
 .profile-owner-buttons {
     grid-area: button;
+    box-sizing: border-box;
+    margin: 8px;
 }

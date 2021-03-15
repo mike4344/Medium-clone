@@ -9,13 +9,20 @@ const db = require('../db/models')
 const {loginUser} = require('../auth')
 
 
-router.get('/', csrfProtection, function (req, res, next) {
+router.get('/', csrfProtection, asyncHandler(async function (req, res, next) {
+    let loggedInUser = null;
+        if(req.session.auth){
+            loggedInUser = await db.User.findByPk(req.session.auth.userId)
+        }
+        if(loggedInUser){
+            res.redirect(`/users/${loggedInUser.id}`)
+        }
     // Pass csrf protection token
     res.render('login', {
         title: 'Login',
         csrfToken: req.csrfToken()
     })
-});
+}));
 
 loginValidators = [
     check('email')

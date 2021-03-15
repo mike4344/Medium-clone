@@ -3,13 +3,14 @@ var router = express.Router();
 const { logoutUser } = require('../auth')
 
 const db = require("../db/models");
+const { requireAuth } = require("../auth");
 const { csrfProtection, asyncHandler } = require("./utils");
 const convertDate = (timestamp) => timestamp.toString().slice(0, 16);
 const { Sequelize } = require("../db/models");
 const Op = Sequelize.Op;
 
 //working toward the official homepage.
-router.get('/homepage', asyncHandler( async(req, res, next) => {
+router.get('/homepage', requireAuth, asyncHandler( async(req, res, next) => {
   const stories = await db.Story.findAll({
     include: db.User,
   });
@@ -21,27 +22,21 @@ router.get('/homepage', asyncHandler( async(req, res, next) => {
   //want to find 5 most recently written stories and display them.
   const recentStories = await db.Story.findAll({
     limit: 5,
-    order: [["createdAt", "asc"]],
+    order: [["createdAt", "desc"]],
     include: db.User,
   });
-  // const randomStories = await db.Story.findAll({ 
-  //   limit: 5,
-  //   order: Sequelize.random()
-  // })
-  // const likedStories = await db.Story.findAll({
-  //   include: [{
-  //     model: Likes
-  //   }],
-  //   limit: 5,
-
-  // })
+  const randomStories = await db.Story.findAll({
+    limit: 5,
+    order: Sequelize.literal('random()'),
+    include: db.User,
+  })
 
   let loggedInUser = null;
   if (req.session.auth) {
     loggedInUser = await db.User.findByPk(req.session.auth.userId);
   }
 
-  res.render('homepage', {title: "ANIMEDIUM!", stories, users, sortedUsers, recentStories, loggedInUser, convertDate })
+  res.render('homepage', {title: "ANIMEDIUM!", stories, users, sortedUsers, recentStories, loggedInUser, randomStories, convertDate })
 }))
 
 
@@ -53,14 +48,17 @@ router.get('/', asyncHandler( async(req, res, next)=> {
   if(req.session.auth){
     loggedInUser = await db.User.findByPk(req.session.auth.userId)
   }
-  res.render('temp-home', { title: 'Home', stories, users, loggedInUser });
+  if(loggedInUser){
+    res.redirect('/homepage')
+  }
+  res.render('splash', { title: 'Home', stories, users, loggedInUser });
 }));
 
 router.get('/logout', asyncHandler( async (req, res) => {
   if(req.session.auth){
     logoutUser(req)
   }
-  res.redirect('/')
+  res.redirect('/login')
 }))
 
 module.exports = router;

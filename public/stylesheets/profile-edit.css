@@ -24,6 +24,13 @@ body {
     background-color: #113a5d;
 }
 
+.edit-profile__container-main:hover {
+    border: 5px solid;
+    border-image: linear-gradient(blue, green);
+    border-width: 2px 4px;
+    border-radius: 40px;
+}
+
 .edit-profile__container-front {
     box-sizing: border-box;
     background-image: url('../edit-profile-front.jpeg');
@@ -38,8 +45,8 @@ body {
     padding-left: 15px;
     color: white;
     text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    display: none;
 }
+
 
 .edit-profile__container-back {
     box-sizing: border-box;
@@ -48,7 +55,10 @@ body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    /* display: none; */
+}
+
+.hide {
+    display: none;
 }
 
 .edit-profile__without-picture, .edit-profile__with-picture {

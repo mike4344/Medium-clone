@@ -1,12 +1,12 @@
 window.addEventListener('DOMContentLoaded', () => {
 
-    let flipped = false;
-    let frontBack = document.querySelector('.edit-profile__container-back');
+    let mainCard = document.querySelector('.edit-profile__container-main');
+    let frontCard = document.querySelector('.edit-profile__container-front');
+    let backCard = document.querySelector('.edit-profile__container-back');
 
-    frontBack.addEventListener('mouseover', (event) => {
-        frontBack.classList.remove('edit-profile__container-front');
-        flipped = true;
+    mainCard.addEventListener('mouseover', (event) => {
+        frontCard.classList.add('hide');
+        backCard.classList.remove('hide');
     });
-
 
 })

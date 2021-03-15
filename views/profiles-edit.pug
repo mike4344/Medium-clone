@@ -6,7 +6,7 @@ block content
     div(class='edit-profile-page')
         div(class='edit-profile__container-main')
             div(class='edit-profile__container-front') Build your Profile
-            div(class='edit-profile__container-back')
+            div(class='edit-profile__container-back hide')
                 if user.pictureURL
                     div(class='edit-profile__with-picture')
                         div: img(class='user-picture' src=`${user.pictureURL}`)
@@ -28,4 +28,4 @@ block content
                             a(href=`/users/${userId}` class='edit-profile-form__cancel') Cancel
     link(rel="stylesheet", href="/stylesheets/login.css")
     link(rel="stylesheet", href="/stylesheets/profile-edit.css")
-    //- script(type='text/javascript' src='/javascripts/editProfile.js')
+    script(type='text/javascript' src='/javascripts/editProfile.js')

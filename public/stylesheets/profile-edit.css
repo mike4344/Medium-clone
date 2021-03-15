@@ -24,12 +24,12 @@ body {
     background-color: #113a5d;
 }
 
-.edit-profile__container-main:hover {
+/* .edit-profile__container-main:hover {
     border: 5px solid;
     border-image: linear-gradient(blue, green);
     border-width: 2px 4px;
     border-radius: 40px;
-}
+} */
 
 .edit-profile__container-front {
     box-sizing: border-box;

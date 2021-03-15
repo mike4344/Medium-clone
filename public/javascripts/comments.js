@@ -206,8 +206,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             if(commentSubmit){
                 commentLikeIcon.addEventListener('click', async () => {
-
-                    if(commentLikeIcon.classList[1]){
+                    if(commentLikeIcon.classList[2]){
                         commentLikeIcon.classList.remove('active');
                         commentLikeIcon.setAttribute('src', '/icons8-star-64.png')
                         likeAMTDisplay.innerText--;

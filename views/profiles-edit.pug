@@ -4,24 +4,28 @@ include utils.pug
 
 block content
     div(class='edit-profile-page')
-        div(class='edit-profile__container-front edit-profile__container-back') Build your Profile
-            if user.pictureURL
-                div(class='edit-profile__with-picture')
-                    img(class='user-picture' src=`${user.pictureURL}`)
-                    div(class='edit-profile__user-name')= user.screenName
-            if !user.pictureURL
-                div(class='edit-profile__top-picture')
-                    div(class='edit-profile__user-name')= user.screenName
-            div(class='edit-profile__bottom-form')
-                +validationErrorSummary(errors)
-                form(action=`/users/${userId}/edit` method='post')
-                    input(type='hidden' name='_csrf' value=csrfToken)
-                    +field('Screen Name', 'screenName', user.screenName)
-                    +field('Picture URL', 'pictureURL', user.pictureURL, 'url', "https://imgur.com/your-link-here")
-                    +field('Biography', 'biography', user.biography, 'textarea', 'Tell the community something about yourself...')
+        div(class='edit-profile__container-main')
+            div(class='edit-profile__container-front') Build your Profile
+            div(class='edit-profile__container-back')
+                if user.pictureURL
+                    div(class='edit-profile__with-picture')
+                        div: img(class='user-picture' src=`${user.pictureURL}`)
+                        div(class='edit-profile__user-name')= user.screenName
+                if !user.pictureURL
+                    div(class='edit-profile__without-picture')
+                        div(class='edit-profile__default-picture') Your Photo here
+                        div(class='edit-profile__user-name')= user.screenName
+                div(class='edit-profile__bottom-form')
+                    +validationErrorSummary(errors)
+                    form(action=`/users/${userId}/edit` method='post')
+                        input(type='hidden' name='_csrf' value=csrfToken)
+                        +field('Screen Name', 'screenName', user.screenName, 'text', null, 'edit-profile-form__name')
+                        +field('Picture URL', 'pictureURL', user.pictureURL, 'url', "https://imgur.com/your-link-here", 'edit-profile-form__pictureURL')
+                        +field('Biography', 'biography', user.biography, 'textarea', 'Tell the community something about yourself...', 'edit-profile-form__biography')
 
-                    div
-                        button(type="submit") Update Profile
-                        a(href=`/users/${userId}`) Cancel
-    script(type='text/javascript' src='/javascripts/editProfile.js')
+                        div(class='login-form__submit-container edit-profile-form__submit-container')
+                            button(type="submit" class='edit-profile-form__submit') Update Profile
+                            a(href=`/users/${userId}` class='edit-profile-form__cancel') Cancel
+    link(rel="stylesheet", href="/stylesheets/login.css")
     link(rel="stylesheet", href="/stylesheets/profile-edit.css")
+    //- script(type='text/javascript' src='/javascripts/editProfile.js')

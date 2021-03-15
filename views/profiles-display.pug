@@ -1,7 +1,7 @@
 extends layout.pug
 append head 
     link(rel="stylesheet" href="/stylesheets/profileBanner.css")
-    link(rel="stylesheet" href="/stylesheets/storybox.css")
+    //- link(rel="stylesheet" href="/stylesheets/storybox.css")
     link(rel="stylesheet" href="/stylesheets/userCard.css")
     link(rel="stylesheet" href="/stylesheets/profilePage.css")
     link(link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;900&display=swap" rel="stylesheet")
@@ -15,7 +15,7 @@ block content
                 h1(class='logo') A N I M E D I U M
         
     div(class='profile-main-body')
-
+        div(class='profile-title') !{user.screenName}'s Profile
         div(class='profile-card')
             if user.pictureURL
                 div(class='user-picture-box')

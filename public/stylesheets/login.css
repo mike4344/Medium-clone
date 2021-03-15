@@ -63,6 +63,11 @@ body {
     margin-left: 10px;
 }
 
+#email:focus,
+#password:focus {
+    background-color: #c4ffdd;
+}
+
 .login-form__submit-container {
     box-sizing: border-box;
     display: flex;

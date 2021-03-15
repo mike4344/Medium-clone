@@ -11,6 +11,7 @@
     '. errors .'
     '. buttons .'
     ;
+    min-height: 100vh;
 }
 }
 @media screen and (max-width: 800px) {
@@ -24,7 +25,8 @@
             'imageUrl'
             'body'
             'errors'
-            'buttons'
+            'buttons';
+            min-height: 100vh;
     }
 }
 

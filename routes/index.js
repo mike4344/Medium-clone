@@ -42,16 +42,15 @@ router.get('/homepage', requireAuth, asyncHandler( async(req, res, next) => {
 
 /* GET home page. */
 router.get('/', asyncHandler( async(req, res, next)=> {
-  const stories = await db.Story.findAll()
-  const users = await db.User.findAll()
-  let loggedInUser = null;
-  if(req.session.auth){
-    loggedInUser = await db.User.findByPk(req.session.auth.userId)
-  }
-  if(loggedInUser){
-    res.redirect('/homepage')
-  }
-  res.render('splash', { title: 'Home', stories, users, loggedInUser });
+ 
+  // let loggedInUser = null;
+  // if(req.session.auth){
+  //   loggedInUser = await db.User.findByPk(req.session.auth.userId)
+  // }
+  // if(loggedInUser){
+  //   res.redirect('/homepage')
+  // }
+  res.render('splash', { title: 'Animedium' });
 }));
 
 router.get('/logout', asyncHandler( async (req, res) => {

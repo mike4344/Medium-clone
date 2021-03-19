@@ -37,7 +37,7 @@ let commentCreator = (commentAmount) => {
   }
 }
 
-commentCreator(1000)
+commentCreator(350)
 
 module.exports = {
   up: (queryInterface, Sequelize) => {

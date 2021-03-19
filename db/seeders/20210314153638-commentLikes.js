@@ -25,7 +25,7 @@ let likeCreator = (likeAmount) => {
 }
 
 //creates and pushes 100000 likes into the array
-likeCreator(100000)
+likeCreator(500)
 
 module.exports = {
   up: (queryInterface, Sequelize) => {

@@ -1,6 +1,6 @@
 'use strict';
 //get random comment id
-let randomComment = () => Math.floor(Math.random() * 500 + 1)
+let randomComment = () => Math.floor(Math.random() * 350 + 1)
 //get random user id
 let randomUser = () => Math.floor(Math.random() * 40 + 1)
 //empty array to be pushed into

@@ -1,6 +1,58 @@
-# Express Project Skeleton
+![Insert image of splash page here]()
+# Animedium
+## _Anime based Medium clone_
 
-Use this project skeleton as a starting point for structuring your app. Things to note
-* Sequelize configuration has not yet been added -- you will need to set that up yourself
-* You may find yourself wanting to use javascript -- js files can be added in `public/javascripts` and should be appended to the Pug templates as needed
-* CSS files can go in `public/stylesheets` and also will need to be added to Pug templates
+
+Animedium is a gathering place for anime characters and enthusiasts alike
+
+## Features
+
+- Users can create and edit their profiles
+- Users can create and edit their stories
+- Users can comment on each others posts 
+- Users can like comments and stories
+
+## Tech
+
+Animedium uses a number of open source projects to work properly:
+
+- Pug -
+- Express -
+- Sequelize -
+- PostgreSQL -
+
+## Installation
+
+Install the dependencies and devDependencies and start the server.
+
+```sh
+git clone https://github.com/mike4344/Medium-clone.git
+npm install
+npm start
+
+```
+
+
+## Features
+
+
+### Users can create and edit their story
+![Insert image of story creation here]()
+
+
+### Users can create and edit their profile
+![Insert image of profile page here]()
+
+
+### Users can write and view comments
+![Insert image of comments here]()
+
+### Users like comments and stories
+![Insert image of likes here]()
+
+## Pushing to Heroku
+```
+git push heroku main:master
+heroku run npm run sequelize db:migrate
+heroku run npm run sequelize db:seed:all
+```

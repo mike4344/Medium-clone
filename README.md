@@ -1,4 +1,4 @@
-![Insert image of splash page here]()
+![Banner](images/Animedium-banner.png)
 # Animedium
 ## _Anime based Medium clone_
 
@@ -37,14 +37,21 @@ npm start
 
 
 ### Users can create and edit their story
+>* The pencil on the navbar takes a user to a page where they can write a story that other users can like and comment on. 
+>* Each story has a title, an option for a subtitle and image (from a url), and a body. 
+>* If the user wants to adjust their story, they can edit, and authorization ensures that a user can only edit stories that they've personally written.  
 ![Insert image of story creation here]()
 
 
 ### Users can create and edit their profile
+>* Every user has a personal profile where they can show off some personality! Profiles can take an image, and a biography, and users can change their name if they want.
+>* Users can also check out other user profiles by clicking through from the main page.
 ![Profile edit](images/Animedium-profile-edit-pic.png)
+![Profile edit](images/Animedium-users.png)
 
 
 ### Users can write and view comments
+>* Every story can be commented on, or a user can simply lurk and read comments if that is more their style. 
 ![Comments 1](images/Animedium-comments-pic-1.png)
 ![Comments 2](images/Animedium-comments-pic-2.png)
 
@@ -55,9 +62,9 @@ npm start
 ![Likes 3](images/Animedium-likes-pic-3.png)
 ![Likes 2](images/Animedium-likes-pic-2.png)
 
-## Pushing to Heroku
+<!-- ## Pushing to Heroku
 ```
 git push heroku main:master
 heroku run npm run sequelize db:migrate
 heroku run npm run sequelize db:seed:all
-```
+``` -->

@@ -11,7 +11,7 @@
     '. errors .'
     '. buttons .'
     ;
-    min-height: 100vh;
+    min-height: 90vh;
 }
 }
 @media screen and (max-width: 800px) {
@@ -26,25 +26,25 @@
             'body'
             'errors'
             'buttons';
-            min-height: 100vh;
+            min-height: 90vh;
     }
 }
 
 .stories-create__title{
     grid-area: title;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
 }
 .stories-create__subtitle{
     grid-area: subtitle;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
 }
 .stories-create__image{
     grid-area: imageUrl;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
 }
 .stories-create__body{
     grid-area: body;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
 }
 /* *{border: 1px solid red} */
 

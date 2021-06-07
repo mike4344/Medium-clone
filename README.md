@@ -40,7 +40,7 @@ npm start
 >* The pencil on the navbar takes a user to a page where they can write a story that other users can like and comment on. 
 >* Each story has a title, an option for a subtitle and image (from a url), and a body. 
 >* If the user wants to adjust their story, they can edit, and authorization ensures that a user can only edit stories that they've personally written.  
-![Insert image of story creation here]()
+![Insert image of story creation here](images/Animedium-story-create.png)
 
 
 ### Users can create and edit their profile

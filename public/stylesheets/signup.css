@@ -135,20 +135,21 @@ body {
     font-size: 20px;
     font-family: 'Cinzel', serif;
     font-weight:900;
-    color: #113a5d;
-    background-color: #c4ffdd;
-    border: 3px;
+    color: #f9f9f9;
+    background-color: #062743;
+    border: 1px;
     border-color: #f9f9f9;
     border-style: inset outset outset inset;
-    border-radius: 25%;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .signup-form__submit:hover {
-    color: #f9f9f9;
-    background-color: #062743;
-    border: 6px solid #f9f9f9;
+    color: orange;
+    background-color: #113a5d;
+    border: 1px solid #f9f9f9;
     border-style: outset inset inset outset;
-    font-size: 18px;
+    font-size: 19px;
 }
 
 .signup-form__cancel {
@@ -161,20 +162,21 @@ body {
     font-size: 20px;
     text-decoration: none;
     font-weight:900;
-    color: #113a5d;
-    background-color: #c4ffdd;
+    color: #f9f9f9;
+    background-color: #062743;
     border-radius: 50%;
-    border: 3px solid #f9f9f9;
+    border: 1px solid #f9f9f9;
     border-style: inset outset outset inset;
-    border-radius: 25%;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .signup-form__cancel:hover {
-    color: #f9f9f9;
-    background-color: #062743;
-    border: 6px solid #f9f9f9;
+    color: orange;
+    background-color: #113a5d;
+    border: 1px solid #f9f9f9;
     border-style: outset inset inset outset;
-    font-size: 18px;
+    font-size: 19px;
 
 }
 
@@ -186,21 +188,37 @@ body {
 }
 
 #signup-form__login {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
     font-size: 25px;
     font-weight: 900;
     color: #062743;
-    transition-property: color;
+    transition: color ease-in .25s;
+    width: 250px;
+    height: 30px;
 }
 
 #signup-form__login:hover {
-    font-size: 5px;
+    font-size: 0;
     color: transparent;
     text-decoration: none;
+    animation: fadeInEffect ease-in .25s;
+    animation-iteration-count: 1;
+    animation-direction: forwards;
 }
 
 #signup-form__login:hover:after {
     font-size: 25px;
     color: orange;
-    margin-right: 70px;
     content: attr(data-hover)
+}
+
+@keyframes fadeInEffect {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

@@ -7,7 +7,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     commentId: {
       allowNull: false,
-      type:DataTypes.INTEGER
+      type:DataTypes.INTEGER,
+      onDelete: "CASCADE",
     },
   }, {});
   CommentLike.associate = function(models) {

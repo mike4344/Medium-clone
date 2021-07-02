@@ -97,7 +97,6 @@ router.get('/:storyId(\\d+)', asyncHandler(async (req, res, next) => {
                 storyId: storyId
             }
         })
-        console.log(likeCount.count)
         if(req.session.auth) {
             currentUserId = req.session.auth.userId;
             currentUser = await db.User.findByPk(currentUserId)
@@ -241,7 +240,7 @@ router.post('/:storyId(\\d+)/delete', requireAuth, csrfProtection, asyncHandler(
         })
 
         await story.destroy()
-        res.redirect('/')
+        res.redirect('/homepage')
     } else {
        res.redirect(`/stories/${storyId}`)
     }

@@ -5,6 +5,7 @@
     width: 100%;
     overflow: hidden;
     align-items: center;
+    padding-bottom: 25px;
 }
 
 .form__icon {

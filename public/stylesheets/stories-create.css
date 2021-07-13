@@ -30,6 +30,10 @@
     }
 }
 
+.stories-create__container {
+    padding-top: 15px;
+}
+
 .stories-create__title{
     grid-area: title;
     padding-bottom: 15px;

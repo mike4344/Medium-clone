@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     //Add comments ---
     if(commentSubmit){
-        console.log(commentSubmit);
         commentSubmit.addEventListener('click', async () => {
             //grab input
             const textArea = document.getElementById('comment__body');
@@ -105,9 +104,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const currentUserCheck = await fetch(`/comments/${comment.id}/current-user`)
                 const currentUserLikeStatus = await currentUserCheck.json();
                 
-                console.log(currentUserLikeStatus);
                 commentUL.appendChild(renderComment(comment.User.screenName, comment.body, comment.User.pictureURL, comment.id, currentUserLikeStatus, likes.count));
-                console.log(commentUL);
                 })
                 //Toggles button text to 'hide comments' upon comment rendering and sets commentsVisible flag to true
                 commentViewButton.innerText = 'Hide Comments...'

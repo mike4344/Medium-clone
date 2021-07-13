@@ -1,5 +1,5 @@
 body {
-    background-color: #113A5D
+    background-color: #113A5D;
 }
 
 .h2-container {
@@ -99,6 +99,7 @@ body {
     padding-top: 75px;
     padding-right: 150px;
     padding-left: 150px;
+    padding-bottom: 25px;
     margin: 5px;
     /* border-top: solid 1px; */
     background-color: #f9f9f9;

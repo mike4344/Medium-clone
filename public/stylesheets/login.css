@@ -1,5 +1,7 @@
 body {
     background-color: #f9f9f9 !important;
+    min-height: 100vh;
+    position: relative;
 }
 
 .login-form__container {
@@ -9,12 +11,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 5%;
+    justify-content: flex-start;
+    padding: 3%;
     height: 100%;
     width: 100%;
-    gap: 50px;
-    min-height: 100vh;
+    gap: 30px;
+    /* min-height: 100vh; */
     font-family: 'Cinzel', serif;
 }
 
@@ -86,20 +88,21 @@ body {
     font-size: 20px;
     font-family: 'Cinzel', serif;
     font-weight:900;
-    color: #113a5d;
-    background-color: #c4ffdd;
-    border: 3px;
+    color: #f9f9f9;
+    background-color: #062743;
+    border: 1px;
     border-color: #f9f9f9;
     border-style: inset outset outset inset;
-    border-radius: 25%;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .login-form__submit:hover {
-    color: #f9f9f9;
-    background-color: #062743;
-    border: 6px solid #f9f9f9;
+    color: orange;
+    background-color: #113a5d;
+    border: 1px solid #f9f9f9;
     border-style: outset inset inset outset;
-    font-size: 18px;
+    font-size: 19px;
 }
 
 .login-form__cancel {
@@ -112,20 +115,21 @@ body {
     font-size: 20px;
     text-decoration: none;
     font-weight:900;
-    color: #113a5d;
-    background-color: #c4ffdd;
+    color: #f9f9f9;
+    background-color: #062743;
     border-radius: 50%;
-    border: 3px solid #f9f9f9;
+    border: 1px solid #f9f9f9;
     border-style: inset outset outset inset;
-    border-radius: 25%;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .login-form__cancel:hover {
-    color: #f9f9f9;
-    background-color: #062743;
-    border: 6px solid #f9f9f9;
+    color: orange;
+    background-color: #113a5d;
+    border: 1px solid #f9f9f9;
     border-style: outset inset inset outset;
-    font-size: 18px;
+    font-size: 19px;
 
 }
 
@@ -136,6 +140,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* color: transparent; */
 }
 
 .errors > p {
@@ -150,20 +155,29 @@ body {
 }
 
 .login-form__signup {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
     font-size: 25px;
     font-weight: 900;
     color: #062743;
-    transition-property: color;
+    transition: color ease-in .25s;
+    width: auto;
+    height: 30px;
 }
 
 .login-form__signup:hover {
     color: transparent;
+    font-size: 0;
     text-decoration: none;
+    animation: fadeInEffect ease-in .25s;
+    animation-iteration-count: 1;
+    animation-direction: forwards;
 }
 
 .login-form__signup:hover:after {
     color: orange;
-    margin-right: 300px;
+    font-size: 25px;
     content: attr(data-hover)
 }
 
@@ -191,6 +205,7 @@ body {
     text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     transition-property: font-size;
     transition-duration: 0.4s;
+    cursor: pointer;
 }
 
 

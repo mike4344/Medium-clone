@@ -7,7 +7,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     storyId: {
       allowNull: false,
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      onDelete: "CASCADE",
     },
   }, 
    {});

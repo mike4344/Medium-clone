@@ -16,7 +16,8 @@ module.exports = {
       storyId: {
         allowNull: false,
         references: { model: 'Stories' },
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
       },
       createdAt: {
         allowNull: false,

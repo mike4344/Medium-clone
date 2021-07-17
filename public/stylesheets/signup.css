@@ -8,7 +8,8 @@ body {
     align-items: center;
     padding: 5% 2%;
     scroll-behavior: smooth;
-    min-height: 100vh;
+    /* min-height: 100vh; */
+    font-family: 'Cinzel', serif;
 }
 
 .signup-form__container {

@@ -1,0 +1,21 @@
+extends layout.pug 
+
+include utils.pug
+
+block content
+    div(class='edit-comment-page')
+        div(class='edit-comment__container')
+            div(class='edit-comment-title') Edit your comment in
+            div(class='edit-comment-story')= story.title
+            div(class='edit-comment-form')
+                +validationErrorSummary(errors)
+                form(action=`/stories/${story.id}/comments/${comment.id}/edit` method='post')
+                    input(type='hidden' name='_csrf' value=csrfToken)
+                    +field('Comment: ', 'body', comment.body, 'textarea', null, 'edit-comment-form__body')
+                    div(class='edit-comment-form__submit-container')
+                        button(type="submit" class='edit-comment-form__submit') Submit
+                        a(href=`/stories/${story.id}` class='edit-comment-form__cancel') Cancel
+                form(action=`/stories/${story.id}/comments/${comment.id}/delete` method='post' class='edit-comment-form__delete-container')
+                    input(type='hidden' name='_csrf' value=csrfToken)
+                    button(type='submit' class='edit-comment-form__delete') Delete
+    link(rel="stylesheet", href="/stylesheets/comment-edit.css")

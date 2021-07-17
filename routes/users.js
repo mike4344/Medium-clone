@@ -12,7 +12,7 @@ const { requireAuth } = require("../auth");
 const convertDate = (timestamp) => timestamp.toString().slice(0, 16);
     
 
-router.get('/:userId(\\d+)', asyncHandler(async(req, res, next) => {
+router.get('/:userId(\\d+)', requireAuth, asyncHandler(async(req, res, next) => {
     //grabbing id from url
     const userId = parseInt(req.params.userId, 10);
     // console.log(db)
@@ -43,6 +43,16 @@ router.get('/:userId(\\d+)', asyncHandler(async(req, res, next) => {
     })
 
 }));
+
+router.get('/currentUser', asyncHandler(async(req, res) => {
+    let currentUserId = null;
+
+    if (req.session.auth) {
+        currentUserId = req.session.auth.userId;
+    }
+
+    res.json(currentUserId)
+}))
 
 const profileValidators = [
     check('screenName')
@@ -81,10 +91,12 @@ router.get('/:userId(\\d+)/edit', requireAuth, csrfProtection, asyncHandler(asyn
     const user = await db.User.findByPk(userId);
 
     if (user.id === req.session.auth.userId) {
+        let currentUserId = req.session.auth.userId;
         res.render('profiles-edit', {
             title: 'Edit Profile',
             user,
             userId,
+            currentUserId,
             csrfToken: req.csrfToken()
         })
     } else {
@@ -114,12 +126,14 @@ router.post('/:userId(\\d+)/edit', requireAuth, profileValidators, csrfProtectio
             await user.update(updatedProfile)
             res.redirect(`/users/${userId}`)
         } else {
+            let currentUserId = req.session.auth.userId;
             const errors = validatorErrors.array().map((error) => error.msg);
             res.render('profiles-edit', {
                 title: 'Edit Profile',
                 user,
                 errors,
                 userId,
+                currentUserId,
                 csrfToken: req.csrfToken()
             })
         }

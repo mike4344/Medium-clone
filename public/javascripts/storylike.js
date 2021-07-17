@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const likeButton = document.getElementById('like-button')
 
-    likeButton.addEventListener('click', async () => {
+    likeButton?.addEventListener('click', async () => {
         // console.log(likeButton.classList[1]);
         const storyId = parseInt(likeButton.classList[1], 10);
 

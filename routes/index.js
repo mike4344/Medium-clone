@@ -36,7 +36,7 @@ router.get('/homepage', requireAuth, asyncHandler( async(req, res, next) => {
     loggedInUser = await db.User.findByPk(req.session.auth.userId);
   }
   let currentUserId = loggedInUser.dataValues.id
-  console.log(loggedInUser.dataValues.id)
+  // console.log(loggedInUser.dataValues.id)
   res.render('homepage', {title: "ANIMEDIUM!", stories, users, sortedUsers, recentStories, loggedInUser, randomStories, convertDate, currentUserId })
 }))
 

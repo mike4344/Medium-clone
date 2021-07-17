@@ -115,3 +115,32 @@
 #comment__body:hover {
     background: #e6e5e5;
 }
+
+.edit-comment-btn {
+    border: 1px solid red;
+    box-sizing: border-box;
+    display: flex;
+    width: 60px;
+    height: 25px;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #f9f9f9;
+    background-color: #062743;
+    border: 1px;
+    border-color: #f9f9f9;
+    border-style: inset outset outset inset;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1.5px;
+    font-weight: 900;
+}
+
+.edit-comment-btn:hover {
+    color: orange;
+    background-color: #113a5d;
+    border: 1px solid #f9f9f9;
+    border-style: outset inset inset outset;
+    font-size: 13px;
+}

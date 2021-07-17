@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             //'hidden' inputs -- we used class list to store variables from our pug file, destructured here
             const storyId = textArea.classList[0];
             const userId = textArea.classList[1];
-
+            
             //if comment body exists, comment is posted.  If no comment body exists, an error message is rendered.
             if(body){
                 //Future comment stores variables from our text area
@@ -60,6 +60,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 //Resets text area and disables the comment form if comment post successful
                 textArea.value = '';
                 commentFormContainer.classList.add('hidden');
+                commentViewButton.innerText = 'View Comments...'
+                commentUL.innerHTML = '';
+                commentsVisible = false;
                 // commentAddButton.classList.remove('hidden');
             }else{
                 //Displays an error message when body is empty//
@@ -86,6 +89,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             //fetches and formats all comments related to this story
             const commentsResponse = await fetch(`/stories/${storyId}/comments`);
             const comments = await commentsResponse.json()
+            const currentUserResponse = await fetch(`/users/currentUser`);
+            const currentUser = await currentUserResponse.json()
             
             //If no comments, renders message to user
             if(comments.length === 0){
@@ -100,11 +105,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             comments.forEach(async (comment) => {
                 const likeAmountQuery = await fetch(`/comments/${comment.id}/likes`);
                 const likes = await likeAmountQuery.json();
-                
+                let commentOwner = false;
                 const currentUserCheck = await fetch(`/comments/${comment.id}/current-user`)
                 const currentUserLikeStatus = await currentUserCheck.json();
+                if (comment.User.id === currentUser) {
+                    commentOwner = true;
+                }
                 
-                commentUL.appendChild(renderComment(comment.User.screenName, comment.body, comment.User.pictureURL, comment.id, currentUserLikeStatus, likes.count));
+                commentUL.appendChild(renderComment(comment.User.screenName, comment.body, comment.User.pictureURL, comment.id, currentUserLikeStatus, likes.count, commentOwner, comment.storyId));
                 })
                 //Toggles button text to 'hide comments' upon comment rendering and sets commentsVisible flag to true
                 commentViewButton.innerText = 'Hide Comments...'
@@ -151,13 +159,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     //Comment renderer helper function
-    function renderComment(author, body, imgURL, id = null, currentUserLike = null, currentLikes = 0) {
+    function renderComment(author, body, imgURL, id = null, currentUserLike = null, currentLikes = 0, commentOwner = true, currentStory = null) {
         //container
         const container = document.createElement('li');
         //authorbox
         const authorContainer = document.createElement('div');
         const authorScreenName = document.createElement('h3');
         const authorIMG = document.createElement('img');
+        const editButton = document.createElement('a');
         //comment body
         const bodyDisplay = document.createElement('pre');
         //like button
@@ -170,7 +179,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         authorScreenName.innerText = author;
         bodyDisplay.innerText = body;
         likeAMTDisplay.innerText = currentLikes;
-
+        
 
         //Assigning classes to each element, used in 'comments' CSS
         container.classList.add('comment-view__comment-container')
@@ -198,8 +207,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         authorContainer.appendChild(authorScreenName);
 
         if(id){
+
+            if (commentOwner) {
+                editButton.setAttribute('href', `/stories/${currentStory}/comments/${id}/edit`)
+                editButton.classList.add('edit-comment-btn')
+                editButton.innerText = 'Edit'
+                authorContainer.appendChild(editButton)
+            }
+
             //Assigns event listener to icon
             authorContainer.appendChild(commentLikeDiv);
+
 
             if(commentSubmit){
                 commentLikeIcon.addEventListener('click', async () => {

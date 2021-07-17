@@ -11,11 +11,13 @@ router.get('/create', requireAuth, csrfProtection, (req, res) => {
     //make a blank story for the form
     const story = db.Story.build();
     const userId = req.session.auth.userId
+    const currentUserId = userId;
     //supply pug story creation template
     res.render('stories-create', {
         title: 'Write Your Story!',
         story,
         userId,
+        currentUserId,
         csrfToken: req.csrfToken()
     })
 })
@@ -232,7 +234,7 @@ router.post('/:storyId(\\d+)/delete', requireAuth, csrfProtection, asyncHandler(
         })
 
         comments.forEach(async comment => {
-            await comment.destory()
+            await comment.destroy()
         })
         
         likes.forEach(async like => {

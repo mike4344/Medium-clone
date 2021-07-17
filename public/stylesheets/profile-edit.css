@@ -6,9 +6,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5% 2%;
+    padding: 3% 2%;
     scroll-behavior: smooth;
-    min-height: 100vh;
+    min-height: calc(100vh - 156px);
 }
 
 .edit-profile__container-main {
@@ -56,6 +56,9 @@ body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
+    animation: fadeInEffect ease-in 0.25s;
+    animation-iteration-count: 1;
+    animation-direction: forwards;
 }
 
 .hide {
@@ -81,17 +84,17 @@ body {
 }
 
 .edit-profile__default-picture, .user-picture {
-box-sizing: border-box;
-background-size: cover;
-background-repeat: no-repeat;
-height: 300px;
-width: 300px;
-color: white;
-text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-border: 1px solid gray;
-border-width: 2px 2px;
-border-radius: 40px 0px;
-overflow: hidden;
+    box-sizing: border-box;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 300px;
+    color: white;
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    border: 1px solid gray;
+    border-width: 2px 2px;
+    border-radius: 40px 0px;
+    overflow: hidden;
 }
 
 
@@ -133,6 +136,7 @@ overflow: hidden;
 
 #biography {
     margin-left: 15px;
+    resize: none;
 
 }
  
@@ -165,26 +169,27 @@ overflow: hidden;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    height: 50px;
+    height: 45px;
     width: 100px;
     margin-right: 50px;
-    font-size: 15px;
+    font-size: 20px;
     font-family: 'Cinzel', serif;
     font-weight:900;
-    color: #113a5d;
-    background-color: #c4ffdd;
-    border: 3px;
+    color: #f9f9f9;
+    background-color: #062743;
+    border: 1px;
     border-color: #f9f9f9;
     border-style: inset outset outset inset;
-    border-radius: 25%;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .edit-profile-form__submit:hover {
-    color: #f9f9f9;
-    background-color: #062743;
-    border: 6px solid #113a5d;
+    color: orange;
+    background-color: #113a5d;
+    border: 1px solid #f9f9f9;
     border-style: outset inset inset outset;
-    font-size: 13px;
+    font-size: 19px;
 }
 
 .edit-profile-form__cancel {
@@ -192,24 +197,25 @@ overflow: hidden;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    height: 50px;
+    height: 45px;
     width: 100px;
     font-size: 20px;
     text-decoration: none;
     font-weight:900;
-    color: #113a5d;
-    background-color: #c4ffdd;
+    color: #f9f9f9;
+    background-color: #062743;
     border-radius: 50%;
-    border: 3px solid #f9f9f9;
+    border: 1px solid #f9f9f9;
     border-style: inset outset outset inset;
-    border-radius: 25%;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .edit-profile-form__cancel:hover {
-    color: #f9f9f9;
-    background-color: #062743;
-    border: 6px solid #113a5d;
+    color: orange;
+    background-color: #113a5d;
+    border: 1px solid #f9f9f9;
     border-style: outset inset inset outset;
-    font-size: 18px;
+    font-size: 19px;
 
 }

@@ -5,7 +5,7 @@
     width: 100%;
     background-color: #f9f9f9;
     align-items: center;
-    min-height: 100vh;
+    min-height: calc(100vh - 156px);
 }
 
 .profile-main-body {

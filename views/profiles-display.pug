@@ -22,13 +22,13 @@ block content
                     div(class='user-picture-box')
                         img(class='user-picture' src=`${user.pictureURL}`)
                         h1(class='user-name')= user.screenName
-                if user.biography 
-                    div(class='user-biography-box')
-                        p(class='user-biography-text')= user.biography
                 if currentUserId === user.id
                     div(class='profile-owner-buttons')
                         a(href=`/users/${user.id}/edit`)
                             button(class='button edit-button profile-edit-button') Edit Profile
+                if user.biography 
+                    div(class='user-biography-box')
+                        p(class='user-biography-text')= user.biography
                 
             //mixin here
             div(class='story-box-container')

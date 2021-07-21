@@ -39,7 +39,7 @@ body {
 }
 
 .email {
-    font-family: sans-serif;
+    font-family: inherit;
     font-size: 15px;
 }
 
